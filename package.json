@@ -2,8 +2,8 @@
   "name": "eslint-plugin-autofix",
   "version": "0.0.1",
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
-  "description": " autofix some errors reported by some eslint rules.",
-  "main": "./lib/index.js",
+  "description": "autofix some errors reported by some eslint rules.",
+  "main": ".lib/index.js",
   "scripts": {
     "lint": "eslint .",
     "test": "mocha tests/**/*"
