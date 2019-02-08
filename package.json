@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
   "description": "autofix some errors reported by some eslint rules.",
-  "main": ".lib/index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint .",
     "test": "mocha tests/**/*"
