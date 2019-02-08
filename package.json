@@ -6,7 +6,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha tests/**/*"
+    "test": "mocha \"tests/**/*.js\""
   },
   "files": [
     "LICENSE",
