@@ -1,0 +1,10 @@
+/node_modules
+dist
+coverage/
+npm-debug.log
+.DS_Store
+.idea
+*.iml
+.cache
+/.vscode
+.sublimelinterrc
