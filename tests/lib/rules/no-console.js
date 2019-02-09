@@ -52,6 +52,26 @@ ruleTester.run("no-console", rule, {
             code: "if (true) { console.log() }",
             output: "if (true) {  }",
             errors: [{ messageId: "unexpected", type: "MemberExpression" }]
+        },
+        {
+            code: "console.log(foo)",
+            output: "",
+            errors: [{ messageId: "unexpected", type: "MemberExpression" }]
+        },
+        {
+            code: "console.log(233)",
+            output: "",
+            errors: [{ messageId: "unexpected", type: "MemberExpression" }]
+        },
+        {
+            code: "console.log(foo())",
+            output: null,
+            errors: [{ messageId: "unexpected", type: "MemberExpression" }]
+        },
+        {
+            code: "var log = console.log",
+            output: null,
+            errors: [{ messageId: "unexpected", type: "MemberExpression" }]
         }
     ]
 });
