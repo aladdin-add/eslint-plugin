@@ -30,7 +30,7 @@ add prefix "autofix" to the rulename in eslintrc:
 ## Supported rules
 
 + 🛠no-debugger
-+ 🛠no-console(wip)
++ 🛠no-console
 + 🛠prefer-spread
 
 ## Acknowledgement
