@@ -2,7 +2,7 @@
   "name": "eslint-plugin-autofix",
   "version": "0.0.3",
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
-  "description": "autofix some errors reported by some eslint rules.",
+  "description": "autofix some errors reported by eslint rules.",
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,8 +11,7 @@
   "files": [
     "LICENSE",
     "README.md",
-    "lib",
-    "index.js"
+    "lib"
   ],
   "dependencies": {
     "eslint-rule-composer": "^0.3.0"
@@ -53,6 +52,9 @@
     }
   },
   "license": "MIT",
+  "repository": "https://github.com/aladdin-add/eslint-plugin-autofix",
+  "homepage": "https://github.com/aladdin-add/eslint-plugin-autofix",
+  "bugs": "https://github.com/aladdin-add/eslint-plugin-autofix/issues/",
   "engines": {
     "node": ">=8"
   }
