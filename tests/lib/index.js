@@ -11,8 +11,8 @@ const assert = require("assert");
 describe("should have the corrent entry", () => {
     it("should export config: all", () => {
         assert(entry && entry.configs && entry.configs.all);
-        assert(entry.configs.all["no-debugger"], "off");
-        assert(entry.configs.all["autofix/no-debugger"], "error");
+        assert(entry.configs.all.rules["no-debugger"], "off");
+        assert(entry.configs.all.rules["autofix/no-debugger"], "error");
     });
     it("should export all rules", () => {
         const rule = entry.rules["no-debugger"];
