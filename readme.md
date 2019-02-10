@@ -29,8 +29,9 @@ add prefix "autofix" to the rulename in eslintrc:
 
 ## Supported rules
 
-+ 🛠no-debugger
 + 🛠no-console
++ 🛠no-debugger
++ 🛠no-undef
 + 🛠prefer-spread
 
 ## Acknowledgement
