@@ -40,7 +40,9 @@
       "eslint",
       "plugin:eslint-plugin/recommended"
     ],
-    "plugins": ["eslint-plugin"],
+    "plugins": [
+      "eslint-plugin"
+    ],
     "overrides": [
       {
         "files": [
