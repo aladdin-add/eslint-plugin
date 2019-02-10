@@ -29,9 +29,9 @@ add prefix "autofix" to the rulename in eslintrc:
 
 ## Supported rules
 
-+ 🛠no-debugger
-+ 🛠no-console
-+ 🛠prefer-spread
++ 🛠[no-debugger](https://eslint.org/docs/rules/no-debugger)
++ 🛠[no-console](https://eslint.org/docs/rules/no-console)
++ 🛠[prefer-spread](https://eslint.org/docs/rules/prefer-spread)
 
 ## Acknowledgement
 + [ESLint](https://eslint.org)
