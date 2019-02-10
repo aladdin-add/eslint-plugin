@@ -6,7 +6,10 @@
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha \"tests/**/*.js\""
+    "test": "mocha \"tests/**/*.js\"",
+    "pretest": "npm run lint",
+    "generate-readme-table": "node scripts/generate-readme-table.js",
+    "generate-release": "node-release-script"
   },
   "files": [
     "LICENSE",
