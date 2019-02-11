@@ -77,6 +77,7 @@ ruleTester.run("${ruleName}", rule, {
 });
 `;
 
-
+// generate rule def/tests
+// TODO: update docs
 fs.writeFileSync(rulePath, rule, "utf-8");
 fs.writeFileSync(testsPath, test, "utf-8");
