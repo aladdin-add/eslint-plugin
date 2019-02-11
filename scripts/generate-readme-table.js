@@ -40,8 +40,5 @@ const updatedReadmeContents = readmeContents.slice(0, linesStartIndex) +
   expectedTableLines +
   readmeContents.slice(linesEndIndex);
 
-if (module.parent) {
-    module.exports = updatedReadmeContents;
-} else {
-    fs.writeFileSync(README_LOCATION, updatedReadmeContents);
-}
+
+fs.writeFileSync(README_LOCATION, updatedReadmeContents);
