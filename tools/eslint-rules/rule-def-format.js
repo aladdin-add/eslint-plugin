@@ -11,19 +11,6 @@ module.exports = {
         fixable: "code"
     },
     create: context => ({
-        Program: node => {
-            const comments = context.getAllComments();
-
-            const headerComment = comments[0];
-
-            if (!headerComment) {
-                context.report({
-                    node,
-                    message: "Missing file header comment.",
-                    fix: fixer => fixer.insertTextBefore(node, "/**\n * @fileoverview \n * @author \n */\n")
-                });
-            }
-        },
         CallExpression: node => {
             if (node.callee.type !== "MemberExpression") {
                 return;
