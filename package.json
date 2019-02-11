@@ -18,7 +18,8 @@
     "lib"
   ],
   "dependencies": {
-    "eslint-rule-composer": "^0.3.0"
+    "eslint-rule-composer": "^0.3.0",
+    "string-similarity": "^3.0.0"
   },
   "devDependencies": {
     "@not-an-aardvark/node-release-script": "^0.1.0",
