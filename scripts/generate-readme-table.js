@@ -15,12 +15,13 @@ const expectedTableLines = Object.keys(rules)
 
         lines.push([
             `[${ruleId}](https://eslint.org/docs/rules/${ruleId})`,
+            rule.meta.recommended ? "✔️" : "",
             "🛠",
             rule.meta.docs.description
         ].join(" | "));
 
         return lines;
-    }, ["Name | 🛠 | Description", "----- | ----- | -----"])
+    }, ["Name | ✔️ | 🛠 | Description", "----- | ----- | ----- | -----"])
     .join("\n");
 
 const readmeContents = fs.readFileSync(README_LOCATION, "utf8");

@@ -32,6 +32,7 @@ const ruleComposer = require("eslint-rule-composer");
 const utils = require("../utils");
 
 const rule = utils.getFixableRule("${ruleName}");
+rule.meta.recommended = false;
 
 module.exports = ruleComposer.mapReports(
     rule,
