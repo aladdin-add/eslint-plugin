@@ -38,22 +38,37 @@ ruleTester.run("no-alert", rule, {
         },
         {
             code: "prompt('test')",
-            output: "",
+            output: null,
             errors
         },
         {
             code: "prompt(test)",
-            output: "",
+            output: null,
             errors
         },
         {
             code: "confirm('test')",
-            output: "",
+            output: null,
             errors
         },
         {
             code: "confirm(test)",
+            output: null,
+            errors
+        },
+        {
+            code: "window.alert('test')",
             output: "",
+            errors
+        },
+        {
+            code: "window.confirm('test')",
+            output: null,
+            errors
+        },
+        {
+            code: "window.prompt('test')",
+            output: null,
             errors
         }
     ]
