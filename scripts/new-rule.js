@@ -77,7 +77,7 @@ ruleTester.run("${ruleName}", rule, {
 });
 `;
 
-// generate rule def/tests
-// TODO: update docs
+// generate rule def & tests & docs
 fs.writeFileSync(rulePath, rule, "utf-8");
 fs.writeFileSync(testsPath, test, "utf-8");
+require("./generate-readme-table");
