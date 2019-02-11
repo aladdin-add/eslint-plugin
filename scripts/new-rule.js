@@ -36,7 +36,7 @@ const rule = utils.getFixableRule("${ruleName}");
 module.exports = ruleComposer.mapReports(
     rule,
     problem => {
-        problem.fix = function(fixer) {
+        problem.fix = fixer => {
 
             // TODO: add rule fixer here;
         };
