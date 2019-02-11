@@ -14,7 +14,7 @@ const expectedTableLines = Object.keys(rules)
         const rule = rules[ruleId];
 
         lines.push([
-            `[${ruleId}](https:/eslint.org/docs/rules/${ruleId})`,
+            `[${ruleId}](https://eslint.org/docs/rules/${ruleId})`,
             "🛠",
             rule.meta.docs.description
         ].join(" | "));
