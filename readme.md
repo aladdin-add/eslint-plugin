@@ -38,6 +38,7 @@ Name | ✔️ | 🛠 | Description
 [no-alert](https://eslint.org/docs/rules/no-alert) |  | 🛠 | disallow the use of `alert`, `confirm`, and `prompt`
 [no-console](https://eslint.org/docs/rules/no-console) | ✔️ | 🛠 | disallow the use of `console`
 [no-debugger](https://eslint.org/docs/rules/no-debugger) | ✔️ | 🛠 | disallow the use of `debugger`
+[no-eq-null](https://eslint.org/docs/rules/no-eq-null) |  | 🛠 | disallow `null` comparisons without type-checking operators
 [no-new-symbol](https://eslint.org/docs/rules/no-new-symbol) |  | 🛠 | disallow `new` operators with the `Symbol` object
 [no-plusplus](https://eslint.org/docs/rules/no-plusplus) | ✔️ | 🛠 | disallow the unary operators `++` and `--`
 [no-prototype-builtins](https://eslint.org/docs/rules/no-prototype-builtins) |  | 🛠 | disallow calling some `Object.prototype` methods directly on objects
