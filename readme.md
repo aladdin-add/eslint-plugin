@@ -38,6 +38,7 @@ Name | ✔️ | 🛠 | Description
 [no-alert](https://eslint.org/docs/rules/no-alert) |  | 🛠 | disallow the use of `alert`, `confirm`, and `prompt`
 [no-console](https://eslint.org/docs/rules/no-console) | ✔️ | 🛠 | disallow the use of `console`
 [no-debugger](https://eslint.org/docs/rules/no-debugger) | ✔️ | 🛠 | disallow the use of `debugger`
+[no-new-symbol](https://eslint.org/docs/rules/no-new-symbol) |  | 🛠 | disallow `new` operators with the `Symbol` object
 [no-plusplus](https://eslint.org/docs/rules/no-plusplus) | ✔️ | 🛠 | disallow the unary operators `++` and `--`
 [no-useless-concat](https://eslint.org/docs/rules/no-useless-concat) |  | 🛠 | disallow unnecessary concatenation of literals or template literals
 [prefer-spread](https://eslint.org/docs/rules/prefer-spread) |  | 🛠 | require spread operators instead of `.apply()`
