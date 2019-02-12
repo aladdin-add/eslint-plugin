@@ -39,6 +39,7 @@ Name | ✔️ | 🛠 | Description
 [no-console](https://eslint.org/docs/rules/no-console) | ✔️ | 🛠 | disallow the use of `console`
 [no-debugger](https://eslint.org/docs/rules/no-debugger) | ✔️ | 🛠 | disallow the use of `debugger`
 [no-plusplus](https://eslint.org/docs/rules/no-plusplus) | ✔️ | 🛠 | disallow the unary operators `++` and `--`
+[no-template-curly-in-string](https://eslint.org/docs/rules/no-template-curly-in-string) |  | 🛠 | disallow template literal placeholder syntax in regular strings
 [no-useless-concat](https://eslint.org/docs/rules/no-useless-concat) |  | 🛠 | disallow unnecessary concatenation of literals or template literals
 [prefer-spread](https://eslint.org/docs/rules/prefer-spread) |  | 🛠 | require spread operators instead of `.apply()`
 [radix](https://eslint.org/docs/rules/radix) |  | 🛠 | enforce the consistent use of the radix argument when using `parseInt()`
