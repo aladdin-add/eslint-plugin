@@ -19,7 +19,7 @@ const rulePath = path.join(__dirname, `../lib/rules/${ruleName}.js`);
 const testsPath = path.join(__dirname, `../tests/lib/rules/${ruleName}.js`);
 
 try {
-    require(`eslint/lib/rules/${ruleName}`);
+    require.resolve(`eslint/lib/rules/${ruleName}`);
 } catch (_) {
     console.error(`Cannot find ESLint rule '\u001b[31m${ruleName}\u001b[39m'.`);
     process.exit(1);
