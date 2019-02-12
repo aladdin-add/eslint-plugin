@@ -3,7 +3,10 @@
 
 const fs = require("fs");
 const path = require("path");
+const util = require("util");
 const gitConfig = require("git-config");
+const execa = require("execa");
+const argv = require("minimist")(process.argv.slice(2), { boolean: true, alias: { safe: "recommended" } });
 
 // git user.name user.email
 const gitconfig = gitConfig.sync() || { user: { name: "", email: "" } };
@@ -11,27 +14,33 @@ const name = gitconfig.user.name;
 const email = gitconfig.user.email;
 
 // file paths to generated!
-const ruleName = process.argv[2];
+const ruleName = argv._[0];
 const rulePath = path.join(__dirname, `../lib/rules/${ruleName}.js`);
 const testsPath = path.join(__dirname, `../tests/lib/rules/${ruleName}.js`);
 
-// TODO: check user input
-if (!ruleName) {
-    console.error("please input the rule name you want to add!");
+try {
+    require.resolve(`eslint/lib/rules/${ruleName}`);
+} catch (_) {
+    console.error(`Cannot find ESLint rule '\u001b[31m${ruleName}\u001b[39m'.`);
     process.exit(1);
+}
+
+if (argv.git) {
+    execa.sync("git", ["checkout", "master"]);
+    execa.sync("git", ["checkout", "-b", ruleName]);
 }
 
 const rule =
 `/**
- * @fileoverview add fixer to rule ${ruleName}.
- * @author ${name}<${email}>
+ * @fileoverview Add fixer to rule ${ruleName}.
+ * @author ${name} <${email}>
  */
 "use strict";
 
 const ruleComposer = require("eslint-rule-composer");
 const utils = require("../utils");
 
-const rule = utils.getFixableRule("${ruleName}");
+const rule = utils.getFixableRule("${ruleName}", ${!!argv.safe});
 
 module.exports = ruleComposer.mapReports(
     rule,
@@ -47,7 +56,7 @@ module.exports = ruleComposer.mapReports(
 
 const test =
 `/**
- * @fileoverview Tests for rule ${ruleName}
+ * @fileoverview Tests for rule ${ruleName}.
  * @author ${name} <${email}>
  */
 "use strict";
@@ -78,6 +87,9 @@ ruleTester.run("${ruleName}", rule, {
 `;
 
 // generate rule def & tests & docs
-fs.writeFileSync(rulePath, rule, "utf-8");
-fs.writeFileSync(testsPath, test, "utf-8");
-require("./generate-readme-table");
+const writeFile = util.promisify(fs.writeFile);
+
+Promise.all([
+    writeFile(rulePath, rule, "utf-8"),
+    writeFile(testsPath, test, "utf-8")
+]).then(() => require("./generate-readme-table"));
