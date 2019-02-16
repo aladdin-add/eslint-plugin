@@ -24,7 +24,7 @@
   "devDependencies": {
     "@not-an-aardvark/node-release-script": "^0.1.0",
     "@types/eslint": "^4.16.6",
-    "eslint": "^5.13.0",
+    "eslint": "^5.14.0",
     "eslint-config-eslint": "^5.0.1",
     "eslint-plugin-eslint-plugin": "^2.0.1",
     "eslint-plugin-node": "^8.0.0",
