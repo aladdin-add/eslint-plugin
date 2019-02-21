@@ -8,9 +8,9 @@
     "lint": "eslint .",
     "test": "mocha \"tests/**/*.js\"",
     "pretest": "npm run lint",
-    "generate-readme-table": "node scripts/generate-readme-table.js",
+    "generate-readme-table": "node tools/generate-readme-table.js",
     "generate-release": "node-release-script",
-    "new": "node scripts/new-rule.js"
+    "new": "node tools/new-rule.js"
   },
   "files": [
     "LICENSE",
