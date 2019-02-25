@@ -36,6 +36,7 @@ add prefix "autofix" to the rulename in eslintrc:
 Name | ✔️ | 🛠 | Description
 ----- | ----- | ----- | -----
 [no-alert](https://eslint.org/docs/rules/no-alert) |  | 🛠 | disallow the use of `alert`, `confirm`, and `prompt`
+[no-caller](https://eslint.org/docs/rules/no-caller) |  | 🛠 | disallow the use of `arguments.caller` or `arguments.callee`
 [no-console](https://eslint.org/docs/rules/no-console) | ✔️ | 🛠 | disallow the use of `console`
 [no-debugger](https://eslint.org/docs/rules/no-debugger) | ✔️ | 🛠 | disallow the use of `debugger`
 [no-eq-null](https://eslint.org/docs/rules/no-eq-null) |  | 🛠 | disallow `null` comparisons without type-checking operators
