@@ -28,6 +28,16 @@ ruleTester.run("no-throw-literal", rule, {
             code: "throw 'error'",
             output: "throw new Error('error');",
             errors
+        },
+        {
+            code: "throw ''",
+            output: "throw new Error('');",
+            errors
+        },
+        {
+            code: "throw 0",
+            output: "throw new Error(0);",
+            errors
         }
     ]
 });
