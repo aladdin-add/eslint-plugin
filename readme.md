@@ -44,6 +44,7 @@ Name | ✔️ | 🛠 | Description
 [no-plusplus](https://eslint.org/docs/rules/no-plusplus) | ✔️ | 🛠 | disallow the unary operators `++` and `--`
 [no-proto](https://eslint.org/docs/rules/no-proto) |  | 🛠 | disallow the use of the `__proto__` property
 [no-prototype-builtins](https://eslint.org/docs/rules/no-prototype-builtins) |  | 🛠 | disallow calling some `Object.prototype` methods directly on objects
+[no-throw-literal](https://eslint.org/docs/rules/no-throw-literal) |  | 🛠 | disallow throwing literals as exceptions
 [no-useless-concat](https://eslint.org/docs/rules/no-useless-concat) |  | 🛠 | disallow unnecessary concatenation of literals or template literals
 [prefer-spread](https://eslint.org/docs/rules/prefer-spread) |  | 🛠 | require spread operators instead of `.apply()`
 [radix](https://eslint.org/docs/rules/radix) |  | 🛠 | enforce the consistent use of the radix argument when using `parseInt()`
