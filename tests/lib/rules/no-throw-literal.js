@@ -25,11 +25,6 @@ ruleTester.run("no-throw-literal", rule, {
     ],
     invalid: [
         {
-            code: "throw undefined",
-            output: "throw new Error();",
-            errors
-        },
-        {
             code: "throw 'error'",
             output: "throw new Error('error');",
             errors
