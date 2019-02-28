@@ -7,6 +7,7 @@
 
 const entry = require("../../lib/index");
 const assert = require("assert");
+let rule;
 
 describe("should have the corrent entry", () => {
     it("should export config: all", () => {
@@ -15,8 +16,10 @@ describe("should have the corrent entry", () => {
         assert(entry.configs.all.rules["autofix/no-debugger"], "error");
     });
     it("should export all rules", () => {
-        const rule = entry.rules["no-debugger"];
+        rule = entry.rules["no-debugger"];
+        assert(rule && rule.meta && rule.create);
 
+        rule = entry.rules.semi;
         assert(rule && rule.meta && rule.create);
     });
 });
