@@ -19,8 +19,6 @@
   ],
   "dependencies": {
     "eslint-rule-composer": "^0.3.0",
-    "glob": "^7.1.3",
-    "globby": "^9.0.0",
     "string-similarity": "^3.0.0"
   },
   "devDependencies": {
