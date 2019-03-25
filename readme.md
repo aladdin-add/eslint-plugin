@@ -14,10 +14,11 @@
 ## Install & usage
 
 ```bash
-$ npm i eslint-plugin-autofix -D
+npm i eslint-plugin-autofix -D
 ```
 
 add prefix "autofix" to the rulename in eslintrc:
+
 ```js
 {
   "plugins": ["autofix"],
@@ -132,6 +133,7 @@ Name | ✔️ | 🛠 | Description
 [semi-spacing](https://eslint.org/docs/rules/semi-spacing) |  | 🛠 | enforce consistent spacing before and after semicolons
 [semi-style](https://eslint.org/docs/rules/semi-style) |  | 🛠 | enforce location of semicolons
 [sort-imports](https://eslint.org/docs/rules/sort-imports) |  | 🛠 | enforce sorted import declarations within modules
+[sort-keys](https://eslint.org/docs/rules/sort-keys) |  | 🛠 | require object keys to be sorted
 [sort-vars](https://eslint.org/docs/rules/sort-vars) |  | 🛠 | require variables within the same declaration block to be sorted
 [space-before-blocks](https://eslint.org/docs/rules/space-before-blocks) |  | 🛠 | enforce consistent spacing before blocks
 [space-before-function-paren](https://eslint.org/docs/rules/space-before-function-paren) |  | 🛠 | enforce consistent spacing before `function` definition opening parenthesis
@@ -155,10 +157,12 @@ Name | ✔️ | 🛠 | Description
 ## Contributing
 
 + to add a new rule:
+
 ```bash
 npm run new ${ruleName}
 ```
 
 ## Acknowledgement
+
 + [ESLint](https://eslint.org)
 + [eslint-rule-composer](https://github.com/not-an-aardvark/eslint-rule-composer)
