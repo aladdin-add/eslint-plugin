@@ -124,6 +124,36 @@ ruleTester.run("no-unused-vars", rule, {
             code: "var a = b, c = d; a;",
             output: "var a = b ; a;",
             errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "let {...a} = b",
+            output: "let {} = b",
+            parserOptions: { ecmaVersion: 2018 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "let {a} = b",
+            output: "let {} = b",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "let {a1: a2} = b",
+            output: "let {} = b",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "let {a = b} = c",
+            output: "let {} = c",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "let {a = b()} = c",
+            output: null,
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
         }
     ]
 });
