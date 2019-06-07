@@ -78,6 +78,52 @@ ruleTester.run("no-unused-vars", rule, {
             parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "import m from 'm'; m;",
             errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = b",
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = 'b'",
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = this",
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = `template`",
+            parserOptions: { ecmaVersion: 6 },
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = this.value",
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = b()",
+            output: null,
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = (b()).c",
+            output: null,
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = b, c = d; c;",
+            output: "var  c = d; c;",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = b, c = d; a;",
+            output: "var a = b ; a;",
+            errors: [{ type: "Identifier" }]
         }
     ]
 });
