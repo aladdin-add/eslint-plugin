@@ -21,61 +21,61 @@ ruleTester.run("no-unused-vars", rule, {
     valid: [
         {
             code: "import 'm'",
-            parserOptions: { sourceType: "module" }
+            parserOptions: { sourceType: "module", ecmaVersion: 6 }
         }
     ],
     invalid: [
         {
             code: "import * as m from 'm'",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "",
             errors: [{ type: "Identifier" }]
         },
         {
             code: "import m from 'm'",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "",
             errors: [{ type: "Identifier" }]
         },
         {
             code: "import {m} from 'm'",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "",
             errors: [{ type: "Identifier" }]
         },
         {
             code: "import {m1 as m2} from 'm'",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "",
             errors: [{ type: "Identifier" }]
         },
         {
             code: "import m, {b} from 'm'; b;",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "import  {b} from 'm'; b;",
             errors: [{ type: "Identifier" }]
         },
         {
             code: "import {a, b} from 'm'; b;",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "import { b} from 'm'; b;",
             errors: [{ type: "Identifier" }]
         },
         {
             code: "import {a1 as a2, b} from 'm'; b;",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "import { b} from 'm'; b;",
             errors: [{ type: "Identifier" }]
         },
         {
             code: "import {a, b} from 'm'; a;",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "import {a} from 'm'; a;",
             errors: [{ type: "Identifier" }]
         },
         {
             code: "import m, {a} from 'm'; m;",
-            parserOptions: { sourceType: "module" },
+            parserOptions: { sourceType: "module", ecmaVersion: 6 },
             output: "import m from 'm'; m;",
             errors: [{ type: "Identifier" }]
         }
