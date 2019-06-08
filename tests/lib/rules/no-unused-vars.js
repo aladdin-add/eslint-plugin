@@ -80,7 +80,22 @@ ruleTester.run("no-unused-vars", rule, {
             errors: [{ type: "Identifier" }]
         },
         {
+            code: "var a",
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
             code: "var a = b",
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = undefined",
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = null",
             output: "",
             errors: [{ type: "Identifier" }]
         },
@@ -106,12 +121,28 @@ ruleTester.run("no-unused-vars", rule, {
             errors: [{ type: "Identifier" }]
         },
         {
+            code: "var a = b = c",
+            output: "",
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = `template-${value}`",
+            parserOptions: { ecmaVersion: 6 },
+            output: null,
+            errors: [{ type: "Identifier" }]
+        },
+        {
             code: "var a = b()",
             output: null,
             errors: [{ type: "Identifier" }]
         },
         {
             code: "var a = (b()).c",
+            output: null,
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var a = b = c()",
             output: null,
             errors: [{ type: "Identifier" }]
         },
