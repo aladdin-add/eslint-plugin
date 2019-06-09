@@ -126,6 +126,11 @@ ruleTester.run("no-unused-vars", rule, {
             errors: [{ type: "Identifier" }]
         },
         {
+            code: "var a = b = c()",
+            output: null,
+            errors: [{ type: "Identifier" }]
+        },
+        {
             code: "var a = `template-${value}`",
             parserOptions: { ecmaVersion: 6 },
             output: null,
