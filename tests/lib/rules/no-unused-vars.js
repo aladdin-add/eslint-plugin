@@ -122,7 +122,7 @@ ruleTester.run("no-unused-vars", rule, {
         },
         {
             code: "var a = b = c",
-            output: "",
+            output: null,
             errors: [{ type: "Identifier" }]
         },
         {
@@ -138,11 +138,6 @@ ruleTester.run("no-unused-vars", rule, {
         },
         {
             code: "var a = (b()).c",
-            output: null,
-            errors: [{ type: "Identifier" }]
-        },
-        {
-            code: "var a = b = c()",
             output: null,
             errors: [{ type: "Identifier" }]
         },
@@ -169,6 +164,12 @@ ruleTester.run("no-unused-vars", rule, {
             errors: [{ type: "Identifier" }]
         },
         {
+            code: "let {a,} = b",
+            output: "let {} = b",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
             code: "let {a1: a2} = b",
             output: "let {} = b",
             parserOptions: { ecmaVersion: 6 },
@@ -183,6 +184,18 @@ ruleTester.run("no-unused-vars", rule, {
         {
             code: "let {a = b()} = c",
             output: null,
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "let {a, b} = c; b;",
+            output: "let { b} = c; b;",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "let {a, b} = c; a;",
+            output: "let {a } = c; a;",
             parserOptions: { ecmaVersion: 6 },
             errors: [{ type: "Identifier" }]
         }
