@@ -142,10 +142,28 @@ ruleTester.run("no-unused-vars", rule, {
             errors: [{ type: "Identifier" }]
         },
         {
+            code: "var [a] = c",
+            output: "var [] = c",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
             code: "var [a, b] = c",
-            output: null,
+            output: "var [, ] = c",
             parserOptions: { ecmaVersion: 6 },
             errors: [{ type: "Identifier" }, { type: "Identifier" }]
+        },
+        {
+            code: "var [a, b] = c; a;",
+            output: "var [a, ] = c; a;",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
+        },
+        {
+            code: "var [a, b] = c; b;",
+            output: "var [, b] = c; b;",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }]
         },
         {
             code: "var a = b, c = d; c;",
