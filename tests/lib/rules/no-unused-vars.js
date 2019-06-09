@@ -142,6 +142,12 @@ ruleTester.run("no-unused-vars", rule, {
             errors: [{ type: "Identifier" }]
         },
         {
+            code: "var [a, b] = c",
+            output: null,
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ type: "Identifier" }, { type: "Identifier" }]
+        },
+        {
             code: "var a = b, c = d; c;",
             output: "var  c = d; c;",
             errors: [{ type: "Identifier" }]
