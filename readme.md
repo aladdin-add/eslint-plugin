@@ -101,6 +101,7 @@ Name | ✔️ | 🛠 | Description
 [no-unsafe-negation](https://eslint.org/docs/rules/no-unsafe-negation) |  | 🛠 | disallow negating the left operand of relational operators
 [no-unused-labels](https://eslint.org/docs/rules/no-unused-labels) |  | 🛠 | disallow unused labels
 [no-unused-vars](https://eslint.org/docs/rules/no-unused-vars) |  | 🛠 | disallow unused variables
+[no-useless-catch](https://eslint.org/docs/rules/no-useless-catch) |  | 🛠 | disallow unnecessary `catch` clauses
 [no-useless-computed-key](https://eslint.org/docs/rules/no-useless-computed-key) |  | 🛠 | disallow unnecessary computed property keys in object literals
 [no-useless-concat](https://eslint.org/docs/rules/no-useless-concat) |  | 🛠 | disallow unnecessary concatenation of literals or template literals
 [no-useless-rename](https://eslint.org/docs/rules/no-useless-rename) |  | 🛠 | disallow renaming import, export, and destructured assignments to the same name
