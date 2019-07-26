@@ -1,0 +1,74 @@
+{
+  "name": "eslint-plugin-no-autofix",
+  "version": "0.0.3",
+  "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
+  "description": "built-in eslint rules without fixer.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha \"tests/**/*.js\"",
+    "pretest": "npm run lint",
+    "generate-release": "node-release-script"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib"
+  ],
+  "dependencies": {
+    "eslint-rule-composer": "^0.3.0"
+  },
+  "devDependencies": {
+    "@not-an-aardvark/node-release-script": "^0.1.0",
+    "@types/eslint": "^4.16.6",
+    "eslint": "^6.0.0",
+    "eslint-config-eslint": "^5.0.1",
+    "eslint-plugin-autofix": "0.0.4",
+    "eslint-plugin-eslint-plugin": "^2.1.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-self": "^1.2.0",
+    "husky": "^2.4.1",
+    "mocha": "^6.1.4"
+  },
+  "peerDependencies": {
+    "eslint": ">= 5.0.0"
+  },
+  "keywords": [
+    "eslint plugin",
+    "autofix"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "eslint"
+    ],
+    "plugins": [
+      "autofix",
+      "self"
+    ],
+    "rules": {
+      "self/prefer-const": 2
+    },
+    "overrides": [
+      {
+        "files": [
+          "tests/**/*.js"
+        ],
+        "env": {
+          "mocha": true
+        }
+      }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint -- --fix && git add ."
+    }
+  },
+  "license": "MIT",
+  "repository": "https://github.com/aladdin-add/eslint-plugin-no-autofix",
+  "homepage": "https://github.com/aladdin-add/eslint-plugin-no-autofix",
+  "bugs": "https://github.com/aladdin-add/eslint-plugin-no-autofix/issues/",
+  "engines": {
+    "node": ">=8"
+  }
+}

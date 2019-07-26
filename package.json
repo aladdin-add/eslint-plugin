@@ -1,85 +1,23 @@
 {
-  "name": "eslint-plugin-autofix",
-  "version": "0.0.8",
+  "name": "eslint-plugin",
+  "version": "0.0.0",
+  "private": true,
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
-  "description": "autofix some errors reported by eslint rules.",
-  "main": "./lib/index.js",
+  "description": "some eslint plugins",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
-    "lint": "eslint .",
-    "test": "mocha \"tests/**/*.js\"",
-    "pretest": "npm run lint",
-    "generate-readme-table": "node tools/generate-readme-table.js",
-    "generate-release": "node-release-script",
-    "new": "node tools/new-rule.js"
-  },
-  "files": [
-    "LICENSE",
-    "README.md",
-    "lib"
-  ],
-  "dependencies": {
-    "eslint-rule-composer": "^0.3.0",
-    "espree": "^6.0.0",
-    "esutils": "^2.0.2",
-    "lodash": "^4.17.15",
-    "string-similarity": "^3.0.0"
-  },
-  "devDependencies": {
-    "@not-an-aardvark/node-release-script": "^0.1.0",
-    "@types/eslint": "^4.16.6",
-    "eslint": "^6.1.0",
-    "eslint-config-eslint": "^5.0.1",
-    "eslint-plugin-eslint-plugin": "^2.0.1",
-    "eslint-plugin-node": "^9.1.0",
-    "execa": "^2.0.3",
-    "git-config": "0.0.7",
-    "husky": "^3.0.1",
-    "minimist": "^1.2.0",
-    "mocha": "^6.2.0"
-  },
-  "peerDependencies": {
-    "eslint": ">= 5.0.0"
-  },
-  "keywords": [
-    "eslint plugin",
-    "autofix"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "eslint",
-      "plugin:eslint-plugin/recommended"
-    ],
-    "plugins": [
-      "eslint-plugin"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "lib/rules/*.js"
-        ],
-        "rules": {
-          "project/rule-def-format": 0
-        }
-      },
-      {
-        "files": [
-          "tests/**/*.js"
-        ],
-        "env": {
-          "mocha": true
-        }
-      }
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint -- --fix && git add ."
-    }
+    "install": "npm run install:autofix && npm run install:no-autofix",
+    "install:autofix": "cd packages/autofix && npm i",
+    "install:no-autofix": "cd packages/no-autofix && npm i",
+    "test": "npm run test:autofix && npm run test:no-autofix",
+    "test:autofix": "cd packages/autofix && npm t",
+    "test:no-autofix": "cd packages/no-autofix && npm t"
   },
   "license": "MIT",
-  "repository": "https://github.com/aladdin-add/eslint-plugin-autofix",
-  "homepage": "https://github.com/aladdin-add/eslint-plugin-autofix",
-  "bugs": "https://github.com/aladdin-add/eslint-plugin-autofix/issues/",
+  "repository": "https://github.com/aladdin-add/eslint-plugin",
+  "homepage": "https://github.com/aladdin-add/eslint-plugin",
+  "bugs": "https://github.com/aladdin-add/eslint-plugin/issues/",
   "engines": {
     "node": ">=8"
   }
