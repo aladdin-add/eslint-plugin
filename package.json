@@ -22,8 +22,7 @@
     "espree": "^6.0.0",
     "esutils": "^2.0.2",
     "lodash": "^4.17.15",
-    "string-similarity": "^3.0.0",
-    "v8-compile-cache": "^2.0.3"
+    "string-similarity": "^3.0.0"
   },
   "devDependencies": {
     "@not-an-aardvark/node-release-script": "^0.1.0",
