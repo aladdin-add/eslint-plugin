@@ -7,12 +7,14 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "install": "npm run install:autofix && npm run install:no-autofix",
+    "install": "npm run install:autofix && npm run install:no-autofix && npm run install:web",
     "install:autofix": "cd packages/autofix && npm i",
     "install:no-autofix": "cd packages/no-autofix && npm i",
-    "test": "npm run test:autofix && npm run test:no-autofix",
+    "install:web": "cd packages/web && npm i",
+    "test": "npm run test:autofix && npm run test:no-autofix && npm run test:web",
     "test:autofix": "cd packages/autofix && npm t",
-    "test:no-autofix": "cd packages/no-autofix && npm t"
+    "test:no-autofix": "cd packages/no-autofix && npm t",
+    "test:web": "cd packages/web && npm t"
   },
   "license": "MIT",
   "repository": "https://github.com/aladdin-add/eslint-plugin",
