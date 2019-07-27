@@ -65,9 +65,9 @@
     }
   },
   "license": "MIT",
-  "repository": "https://github.com/aladdin-add/eslint-plugin-no-autofix",
-  "homepage": "https://github.com/aladdin-add/eslint-plugin-no-autofix",
-  "bugs": "https://github.com/aladdin-add/eslint-plugin-no-autofix/issues/",
+  "repository": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/no-autofix",
+  "homepage": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/no-autofix",
+  "bugs": "https://github.com/aladdin-add/eslint-plugin/issues/",
   "engines": {
     "node": ">=8"
   }

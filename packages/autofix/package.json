@@ -77,9 +77,9 @@
     }
   },
   "license": "MIT",
-  "repository": "https://github.com/aladdin-add/eslint-plugin-autofix",
-  "homepage": "https://github.com/aladdin-add/eslint-plugin-autofix",
-  "bugs": "https://github.com/aladdin-add/eslint-plugin-autofix/issues/",
+  "repository": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/autofix",
+  "homepage": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/autofix",
+  "bugs": "https://github.com/aladdin-add/eslint-plugin/issues/",
   "engines": {
     "node": ">=8"
   }
