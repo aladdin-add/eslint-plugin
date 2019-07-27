@@ -21,12 +21,13 @@
 npm i eslint-plugin-no-autofix -D
 ```
 
-add prefix "no-autofix" to the rulename in eslintrc:
+add prefix "no-autofix/" to the rulename in eslintrc:
 
 ```js
 {
   "plugins": ["no-autofix"],
   "rules": {
+    "prefer-const": "off",
     "no-autofix/prefer-const": "error"
   }
 }
