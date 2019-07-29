@@ -79,7 +79,7 @@
   "license": "MIT",
   "repository": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/autofix",
   "homepage": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/autofix",
-  "bugs": "https://github.com/aladdin-add/eslint-plugin/issues/",
+  "bugs": "https://github.com/aladdin-add/eslint-plugin/issues/new?assignees=aladdin-add&labels=bug&template=bug-report--eslint-plugin-autofix.md&title=eslint-plugin-autofix+bug",
   "engines": {
     "node": ">=8"
   }
