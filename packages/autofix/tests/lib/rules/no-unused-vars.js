@@ -15,13 +15,24 @@ const RuleTester = require("eslint").RuleTester;
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 9 } });
 
 ruleTester.run("no-unused-vars", rule, {
     valid: [
         {
             code: "import 'm'",
             parserOptions: { sourceType: "module", ecmaVersion: 6 }
+        },
+
+        // https://github.com/aladdin-add/eslint-plugin/issues/58
+        {
+            code: `const { _ } = require('lib/locale.js');
+            class OneDriveApi {
+                async example() {
+                    throw new Error(_('oops'));
+                }
+            }
+            module.exports = { OneDriveApi };`
         }
     ],
     invalid: [
