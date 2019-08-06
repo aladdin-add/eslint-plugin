@@ -193,6 +193,68 @@ ruleTester.run("no-unused-vars", rule, {
             errors: [{ type: "Identifier" }, { type: "Identifier" }]
         },
         {
+            code: "function foo(a, b, c){console.log(b);}; foo(1, 2, 3);",
+            output: "function foo(a, b ){console.log(b);}; foo(1, 2, 3);",
+            parserOptions: { ecmaVersion: 2018 },
+            errors: [
+                { type: "Identifier" }
+            ],
+            options: [{
+                args: "after-used",
+                argsIgnorePattern: "^_"
+            }]
+        },
+        {
+            code: "const foo = function(a, b, c) {console.log(b);}; foo(1, 2, 3);",
+            output: "const foo = function(a, b ) {console.log(b);}; foo(1, 2, 3);",
+            parserOptions: { ecmaVersion: 2018 },
+            errors: [
+                { type: "Identifier" }
+            ],
+            options: [{
+                args: "after-used",
+                argsIgnorePattern: "^_"
+            }]
+        },
+        {
+            code: "const foo = (a, b, c) => {console.log(b);}; foo(1, 2, 3);",
+            output: "const foo = (a, b ) => {console.log(b);}; foo(1, 2, 3);",
+            parserOptions: { ecmaVersion: 2018 },
+            errors: [
+                { type: "Identifier" }
+            ],
+            options: [{
+                args: "after-used",
+                argsIgnorePattern: "^_"
+            }]
+        },
+        {
+            code: "function foo(a, b, c){console.log(b);}; foo(1, 2, 3);",
+            output: "function foo(_a, b, _c){console.log(b);}; foo(1, 2, 3);",
+            parserOptions: { ecmaVersion: 2018 },
+            errors: [
+                { type: "Identifier" },
+                { type: "Identifier" }
+            ],
+            options: [{
+                args: "all",
+                argsIgnorePattern: "^_"
+            }]
+        },
+        {
+            code: "function foo(a, b, c){console.log(b);}; foo(1, 2, 3);",
+            output: "function foo(a, b, c){console.log(b);}; foo(1, 2, 3);",
+            parserOptions: { ecmaVersion: 2018 },
+            errors: [
+                { type: "Identifier" },
+                { type: "Identifier" }
+            ],
+            options: [{
+                args: "all",
+                argsIgnorePattern: "_$"
+            }]
+        },
+        {
             code: "let {a} = b",
             output: "let {} = b",
             parserOptions: { ecmaVersion: 6 },
