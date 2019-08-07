@@ -243,7 +243,7 @@ ruleTester.run("no-unused-vars", rule, {
         },
         {
             code: "function foo(a, b, c){console.log(b);}; foo(1, 2, 3);",
-            output: "function foo(a, b, c){console.log(b);}; foo(1, 2, 3);",
+            output: null,
             parserOptions: { ecmaVersion: 2018 },
             errors: [
                 { type: "Identifier" },
@@ -252,6 +252,18 @@ ruleTester.run("no-unused-vars", rule, {
             options: [{
                 args: "all",
                 argsIgnorePattern: "_$"
+            }]
+        },
+        {
+            code: "function foo(a, b, c){console.log(b);}; foo(1, 2, 3);",
+            output: null,
+            parserOptions: { ecmaVersion: 2018 },
+            errors: [
+                { type: "Identifier" },
+                { type: "Identifier" }
+            ],
+            options: [{
+                args: "all"
             }]
         },
         {
