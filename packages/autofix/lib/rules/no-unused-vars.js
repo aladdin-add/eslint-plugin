@@ -117,7 +117,7 @@ module.exports = ruleComposer.mapReports(
 
                             const i = node.range[0];
 
-                            return fixer.replaceTextRange([i, i], prefix);
+                            return fixer.insertTextBefore(node, prefix);
                         }
                         case "after-used": {
                             const comma = sourceCode.getTokenBefore(node, commaFilter);
