@@ -115,8 +115,6 @@ module.exports = ruleComposer.mapReports(
                                 return null;
                             }
 
-                            const i = node.range[0];
-
                             return fixer.insertTextBefore(node, prefix);
                         }
                         case "after-used": {
