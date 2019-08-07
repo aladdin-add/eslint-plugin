@@ -20,11 +20,8 @@
   },
   "files": [
     "LICENSE",
-    "README.md",
-    "bin",
-    "conf",
-    "lib",
-    "messages"
+    "readme.md",
+    "lib"
   ],
   "repository": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/web",
   "homepage": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/web",
