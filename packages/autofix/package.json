@@ -26,14 +26,14 @@
   },
   "devDependencies": {
     "@not-an-aardvark/node-release-script": "^0.1.0",
-    "@types/eslint": "^4.16.6",
+    "@types/eslint": "^4.16.8",
     "eslint": "^6.1.0",
     "eslint-config-eslint": "^5.0.1",
     "eslint-plugin-eslint-plugin": "^2.0.1",
     "eslint-plugin-node": "^9.1.0",
-    "execa": "^2.0.3",
+    "execa": "^2.0.4",
     "git-config": "0.0.7",
-    "husky": "^3.0.1",
+    "husky": "^3.0.3",
     "minimist": "^1.2.0",
     "mocha": "^6.2.0",
     "standard-version": "^7.0.0"

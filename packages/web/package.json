@@ -28,16 +28,16 @@
   "bugs": "https://github.com/aladdin-add/eslint-plugin/issues/",
   "dependencies": {
     "espree": "^6.0.0",
-    "esutils": "^2.0.2",
-    "lodash": "^4.17.11"
+    "esutils": "^2.0.3",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
+    "eslint": "^6.1.0",
     "eslint-config-eslint": "^5.0.1",
     "eslint-plugin-node": "^9.1.0",
-    "lint-staged": "^8.2.1",
-    "markdownlint": "^0.15.0",
-    "mocha": "^6.1.4",
+    "lint-staged": "^9.2.1",
+    "markdownlint": "^0.16.0",
+    "mocha": "^6.2.0",
     "yorkie": "^2.0.0"
   },
   "keywords": [
