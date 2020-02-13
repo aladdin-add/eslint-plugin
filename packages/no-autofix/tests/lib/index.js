@@ -18,4 +18,10 @@ describe("should have the corrent entry", () => {
 
         assert(rule && rule.meta && rule.create);
     });
+
+    it("should support 3rd party rules", () => {
+        const rule = entry.rules["node/exports-style"];
+
+        assert(rule && rule.meta && rule.create);
+    });
 });
