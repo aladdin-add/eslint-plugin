@@ -5,9 +5,7 @@
   "description": "autofix some errors reported by eslint rules.",
   "main": "./lib/index.js",
   "scripts": {
-    "lint": "eslint .",
     "test": "mocha \"tests/**/*.js\"",
-    "pretest": "npm run lint",
     "generate-readme-table": "node tools/generate-readme-table.js",
     "generate-release": "node-release-script",
     "new": "node tools/new-rule.js"
@@ -19,24 +17,20 @@
   ],
   "dependencies": {
     "eslint-rule-composer": "^0.3.0",
-    "espree": "^6.0.0",
+    "espree": "^6.1.2",
     "esutils": "^2.0.2",
     "lodash": "^4.17.15",
-    "string-similarity": "^3.0.0"
+    "string-similarity": "^4.0.1"
   },
   "devDependencies": {
     "@not-an-aardvark/node-release-script": "^0.1.0",
-    "@types/eslint": "^4.16.8",
-    "eslint": "^6.1.0",
-    "eslint-config-eslint": "^5.0.1",
-    "eslint-plugin-eslint-plugin": "^2.0.1",
-    "eslint-plugin-node": "^9.1.0",
-    "execa": "^2.0.4",
+    "@types/eslint": "^6.1.8",
+    "execa": "^4.0.0",
     "git-config": "0.0.7",
-    "husky": "^3.0.3",
+    "husky": "^4.2.3",
     "minimist": "^1.2.0",
-    "mocha": "^6.2.0",
-    "standard-version": "^7.0.0"
+    "mocha": "^7.0.1",
+    "standard-version": "^7.1.0"
   },
   "peerDependencies": {
     "eslint": ">= 5.12.1"
@@ -45,38 +39,6 @@
     "eslint plugin",
     "autofix"
   ],
-  "eslintConfig": {
-    "extends": [
-      "eslint",
-      "plugin:eslint-plugin/recommended"
-    ],
-    "plugins": [
-      "eslint-plugin"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "lib/rules/*.js"
-        ],
-        "rules": {
-          "project/rule-def-format": 0
-        }
-      },
-      {
-        "files": [
-          "tests/**/*.js"
-        ],
-        "env": {
-          "mocha": true
-        }
-      }
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint -- --fix && git add ."
-    }
-  },
   "license": "MIT",
   "repository": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/autofix",
   "homepage": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/autofix",

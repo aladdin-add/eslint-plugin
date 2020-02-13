@@ -5,7 +5,7 @@
 "use strict";
 
 const packageMetadata = require("../../package");
-const PLUGIN_NAME = packageMetadata.name.replace(/^eslint-plugin-/, "");
+const PLUGIN_NAME = packageMetadata.name.replace(/^eslint-plugin-/u, "");
 const allRules = require("../rules");
 
 const all = {

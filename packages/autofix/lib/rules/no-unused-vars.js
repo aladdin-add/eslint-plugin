@@ -16,7 +16,6 @@ const commaFilter = { filter: token => token.value === "," };
  * Process the raw options into a config object.
  *
  * This function is directly copied from eslint source code.
- *
  * @param {Object} options Options from context
  * @returns {Object} config The rule config
  */
@@ -61,7 +60,6 @@ function getConfig(options) {
  * Commonly argsIgnorePattern will be a regex that matches a prefix to a
  * variable name. The prefix is a way to indicate the arguments is explicitly
  * unused.
- *
  * @param {Object} config rule config
  * @returns {string | null} the prefix, if it exists
  */
@@ -72,7 +70,7 @@ function getIgnoredArgPrefix(config) {
         return null;
     }
 
-    const m = argsIgnorePattern.toString().match(/^\/\^(\w+)\/\w?$/);
+    const m = argsIgnorePattern.toString().match(/^\/\^(\w+)\/\w?$/u);
 
     if (!m) {
         return null;

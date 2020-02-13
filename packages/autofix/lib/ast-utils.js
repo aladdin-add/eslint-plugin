@@ -10,7 +10,7 @@ const sideEffectFree = new Set(["Literal", "Identifier", "ThisExpression"]);
 
 /**
  * Finds a function node from ancestors of a node.
- * @param {ASTNode} node - A start node to find.
+ * @param {ASTNode} node A start node to find.
  * @returns {Node|null} A found function node.
  */
 function getUpperFunction(node) {
@@ -24,7 +24,6 @@ function getUpperFunction(node) {
 
 /**
  * Check if an expression has side effect.
- *
  * @param {Node} node AST node
  * @returns {boolean} result
  */

@@ -5,9 +5,7 @@
   "description": "built-in eslint rules without fixer.",
   "main": "./lib/index.js",
   "scripts": {
-    "lint": "eslint .",
     "test": "mocha \"tests/**/*.js\"",
-    "pretest": "npm run lint",
     "generate-release": "node-release-script"
   },
   "files": [
@@ -20,15 +18,7 @@
   },
   "devDependencies": {
     "@not-an-aardvark/node-release-script": "^0.1.0",
-    "@types/eslint": "^4.16.8",
-    "eslint": "^6.0.0",
-    "eslint-config-eslint": "^5.0.1",
-    "eslint-plugin-autofix": "0.0.9",
-    "eslint-plugin-eslint-plugin": "^2.1.0",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-self": "^1.2.0",
-    "husky": "^3.0.3",
-    "mocha": "^6.1.4"
+    "mocha": "^7.0.1"
   },
   "peerDependencies": {
     "eslint": ">= 5.12.1"
@@ -37,33 +27,6 @@
     "eslint plugin",
     "autofix"
   ],
-  "eslintConfig": {
-    "extends": [
-      "eslint"
-    ],
-    "plugins": [
-      "autofix",
-      "self"
-    ],
-    "rules": {
-      "self/prefer-const": 2
-    },
-    "overrides": [
-      {
-        "files": [
-          "tests/**/*.js"
-        ],
-        "env": {
-          "mocha": true
-        }
-      }
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint -- --fix && git add ."
-    }
-  },
   "license": "MIT",
   "repository": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/no-autofix",
   "homepage": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/no-autofix",

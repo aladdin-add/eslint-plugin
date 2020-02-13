@@ -53,8 +53,8 @@ if (eslintVersion >= "6.0.0") {
 
 // import all rules in lib/rules
 fs.readdirSync(`${__dirname}/rules`)
-    .filter(fileName => fileName.endsWith(".js") && /^[^._]/.test(fileName))
-    .map(fileName => fileName.replace(/\.js$/, ""))
+    .filter(fileName => fileName.endsWith(".js") && /^[^._]/u.test(fileName))
+    .map(fileName => fileName.replace(/\.js$/u, ""))
     .reduce((rules, ruleName) => Object.assign(rules, { [ruleName]: loadRule(ruleName) }), allRules);
 
 module.exports = allRules;

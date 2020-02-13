@@ -5,17 +5,46 @@
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
   "description": "some eslint plugins",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^7.0.0-alpha.0",
+    "eslint-config-eslint": "^6.0.0",
+    "eslint-plugin-eslint-plugin": "^2.2.1",
+    "eslint-plugin-jsdoc": "^21.0.0",
+    "eslint-plugin-node": "^11.0.0"
+  },
   "scripts": {
-    "install": "npm run install:autofix && npm run install:no-autofix && npm run install:web",
+    "postinstall": "npm run install:autofix && npm run install:no-autofix && npm run install:web",
     "install:autofix": "cd packages/autofix && npm i",
     "install:no-autofix": "cd packages/no-autofix && npm i",
     "install:web": "cd packages/web && npm i",
     "test": "npm run test:autofix && npm run test:no-autofix && npm run test:web",
     "test:autofix": "cd packages/autofix && npm t",
     "test:no-autofix": "cd packages/no-autofix && npm t",
-    "test:web": "cd packages/web && npm t"
+    "test:web": "cd packages/web && npm t",
+    "lint": "eslint packages/"
   },
+  "eslintConfig": {
+    "extends": [
+      "eslint-config-eslint",
+      "plugin:eslint-plugin/recommended"
+    ],
+    "plugins": [
+      "eslint-plugin"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "packages/*/tests/**/*"
+        ],
+        "env": {
+          "mocha": true
+        }
+      }
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/"
+  ],
   "license": "MIT",
   "repository": "https://github.com/aladdin-add/eslint-plugin",
   "homepage": "https://github.com/aladdin-add/eslint-plugin",
