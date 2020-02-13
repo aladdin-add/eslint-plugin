@@ -1,8 +1,8 @@
 {
   "name": "eslint-plugin-no-autofix",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
-  "description": "built-in eslint rules without fixer.",
+  "description": "eslint rules without fixer.",
   "main": "./lib/index.js",
   "scripts": {
     "test": "mocha \"tests/**/*.js\"",
