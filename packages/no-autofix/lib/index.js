@@ -5,11 +5,11 @@
 "use strict";
 
 const all = require("./configs/all");
-const { proxy } = require("./rules");
+const rules = require("./rules");
 
 module.exports = {
     configs: {
         all
     },
-    rules: proxy
+    rules
 };
