@@ -54,6 +54,7 @@ Name | ✔️ | 🛠 | Description
 [eol-last](https://eslint.org/docs/rules/eol-last) |  | 🛠 | require or disallow newline at the end of files
 [eqeqeq](https://eslint.org/docs/rules/eqeqeq) |  | 🛠 | require the use of `===` and `!==`
 [func-call-spacing](https://eslint.org/docs/rules/func-call-spacing) |  | 🛠 | require or disallow spacing between function identifiers and their invocations
+[function-call-argument-newline](https://eslint.org/docs/rules/function-call-argument-newline) |  | 🛠 | enforce line breaks between arguments of a function call
 [function-paren-newline](https://eslint.org/docs/rules/function-paren-newline) |  | 🛠 | enforce consistent line breaks inside function parentheses
 [generator-star-spacing](https://eslint.org/docs/rules/generator-star-spacing) |  | 🛠 | enforce consistent spacing around `*` operators in generator functions
 [implicit-arrow-linebreak](https://eslint.org/docs/rules/implicit-arrow-linebreak) |  | 🛠 | enforce the location of arrow function bodies
@@ -67,7 +68,7 @@ Name | ✔️ | 🛠 | Description
 [lines-around-directive](https://eslint.org/docs/rules/lines-around-directive) |  | 🛠 | require or disallow newlines around directives
 [lines-between-class-members](https://eslint.org/docs/rules/lines-between-class-members) |  | 🛠 | require or disallow an empty line between class members
 [multiline-comment-style](https://eslint.org/docs/rules/multiline-comment-style) |  | 🛠 | enforce a particular style for multiline comments
-[new-parens](https://eslint.org/docs/rules/new-parens) |  | 🛠 | require parentheses when invoking a constructor with no arguments
+[new-parens](https://eslint.org/docs/rules/new-parens) |  | 🛠 | enforce or disallow parentheses when invoking a constructor with no arguments
 [newline-after-var](https://eslint.org/docs/rules/newline-after-var) |  | 🛠 | require or disallow an empty line after variable declarations
 [newline-before-return](https://eslint.org/docs/rules/newline-before-return) |  | 🛠 | require an empty line before `return` statements
 [newline-per-chained-call](https://eslint.org/docs/rules/newline-per-chained-call) |  | 🛠 | require a newline after each call in a method chain
@@ -76,6 +77,7 @@ Name | ✔️ | 🛠 | Description
 [no-confusing-arrow](https://eslint.org/docs/rules/no-confusing-arrow) |  | 🛠 | disallow arrow functions where they could be confused with comparisons
 [no-console](https://eslint.org/docs/rules/no-console) | ✔️ | 🛠 | disallow the use of `console`
 [no-debugger](https://eslint.org/docs/rules/no-debugger) | ✔️ | 🛠 | disallow the use of `debugger`
+[no-div-regex](https://eslint.org/docs/rules/no-div-regex) |  | 🛠 | disallow division operators explicitly at the beginning of regular expressions
 [no-else-return](https://eslint.org/docs/rules/no-else-return) |  | 🛠 | disallow `else` blocks after `return` statements in `if` statements
 [no-eq-null](https://eslint.org/docs/rules/no-eq-null) |  | 🛠 | disallow `null` comparisons without type-checking operators
 [no-extra-bind](https://eslint.org/docs/rules/no-extra-bind) |  | 🛠 | disallow unnecessary calls to `.bind()`
@@ -98,11 +100,10 @@ Name | ✔️ | 🛠 | Description
 [no-trailing-spaces](https://eslint.org/docs/rules/no-trailing-spaces) |  | 🛠 | disallow trailing whitespace at the end of lines
 [no-undef-init](https://eslint.org/docs/rules/no-undef-init) |  | 🛠 | disallow initializing variables to `undefined`
 [no-unneeded-ternary](https://eslint.org/docs/rules/no-unneeded-ternary) |  | 🛠 | disallow ternary operators when simpler alternatives exist
-[no-unsafe-negation](https://eslint.org/docs/rules/no-unsafe-negation) |  | 🛠 | disallow negating the left operand of relational operators
 [no-unused-labels](https://eslint.org/docs/rules/no-unused-labels) |  | 🛠 | disallow unused labels
 [no-unused-vars](https://eslint.org/docs/rules/no-unused-vars) |  | 🛠 | disallow unused variables
 [no-useless-catch](https://eslint.org/docs/rules/no-useless-catch) |  | 🛠 | disallow unnecessary `catch` clauses
-[no-useless-computed-key](https://eslint.org/docs/rules/no-useless-computed-key) |  | 🛠 | disallow unnecessary computed property keys in object literals
+[no-useless-computed-key](https://eslint.org/docs/rules/no-useless-computed-key) |  | 🛠 | disallow unnecessary computed property keys in objects and classes
 [no-useless-concat](https://eslint.org/docs/rules/no-useless-concat) |  | 🛠 | disallow unnecessary concatenation of literals or template literals
 [no-useless-rename](https://eslint.org/docs/rules/no-useless-rename) |  | 🛠 | disallow renaming import, export, and destructured assignments to the same name
 [no-useless-return](https://eslint.org/docs/rules/no-useless-return) |  | 🛠 | disallow redundant return statements
@@ -122,6 +123,7 @@ Name | ✔️ | 🛠 | Description
 [prefer-arrow-callback](https://eslint.org/docs/rules/prefer-arrow-callback) |  | 🛠 | require using arrow functions for callbacks
 [prefer-const](https://eslint.org/docs/rules/prefer-const) |  | 🛠 | require `const` declarations for variables that are never reassigned after declared
 [prefer-destructuring](https://eslint.org/docs/rules/prefer-destructuring) |  | 🛠 | require destructuring from arrays and/or objects
+[prefer-exponentiation-operator](https://eslint.org/docs/rules/prefer-exponentiation-operator) |  | 🛠 | disallow the use of `Math.pow` in favor of the `**` operator
 [prefer-numeric-literals](https://eslint.org/docs/rules/prefer-numeric-literals) |  | 🛠 | disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals
 [prefer-object-spread](https://eslint.org/docs/rules/prefer-object-spread) |  | 🛠 | disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead.
 [prefer-spread](https://eslint.org/docs/rules/prefer-spread) |  | 🛠 | require spread operators instead of `.apply()`
