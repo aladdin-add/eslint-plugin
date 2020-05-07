@@ -6,11 +6,11 @@
   "description": "some eslint plugins",
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.0.0-alpha.0",
+    "eslint": "^7.0.0-rc.0",
     "eslint-config-eslint": "^6.0.0",
     "eslint-plugin-eslint-plugin": "^2.2.1",
-    "eslint-plugin-jsdoc": "^21.0.0",
-    "eslint-plugin-node": "^11.0.0"
+    "eslint-plugin-jsdoc": "^24.0.6",
+    "eslint-plugin-node": "^11.1.0"
   },
   "scripts": {
     "postinstall": "npm run install:autofix && npm run install:no-autofix && npm run install:web",
