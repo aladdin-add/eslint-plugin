@@ -87,6 +87,7 @@ Name | ✔️ | 🛠 | Description
 [no-extra-semi](https://eslint.org/docs/rules/no-extra-semi) |  | 🛠 | disallow unnecessary semicolons
 [no-floating-decimal](https://eslint.org/docs/rules/no-floating-decimal) |  | 🛠 | disallow leading or trailing decimal points in numeric literals
 [no-implicit-coercion](https://eslint.org/docs/rules/no-implicit-coercion) |  | 🛠 | disallow shorthand type conversions
+[no-lone-blocks](https://eslint.org/docs/rules/no-lone-blocks) |  | 🛠 | disallow unnecessary nested blocks
 [no-lonely-if](https://eslint.org/docs/rules/no-lonely-if) |  | 🛠 | disallow `if` statements as the only statement in `else` blocks
 [no-multi-spaces](https://eslint.org/docs/rules/no-multi-spaces) |  | 🛠 | disallow multiple spaces
 [no-multiple-empty-lines](https://eslint.org/docs/rules/no-multiple-empty-lines) |  | 🛠 | disallow multiple empty lines
