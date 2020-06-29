@@ -92,4 +92,7 @@ const writeFile = util.promisify(fs.writeFile);
 Promise.all([
     writeFile(rulePath, rule, "utf-8"),
     writeFile(testsPath, test, "utf-8")
-]).then(() => require("./generate-readme-table"));
+]).then(() => {
+    require("./generate-readme-table");
+    console.log(`file created:\n${rulePath}\n${testsPath}`);
+});
