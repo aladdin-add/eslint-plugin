@@ -6,11 +6,9 @@
 
 const ruleComposer = require("eslint-rule-composer");
 const utils = require("../utils");
+const { STATEMENT_LIST_PARENTS } = require("../ast-utils");
 
 const rule = utils.getFixableRule("no-console", true);
-
-const STATEMENT_LIST_PARENTS = new Set(["Program", "BlockStatement", "SwitchCase"]);
-
 
 module.exports = ruleComposer.mapReports(
     rule,
