@@ -8,6 +8,9 @@
 const anyFunctionPattern = /^(?:Function(?:Declaration|Expression)|ArrowFunctionExpression)$/u;
 const sideEffectFree = new Set(["Literal", "Identifier", "ThisExpression"]);
 
+// A set of node types that can contain a list of statements
+const STATEMENT_LIST_PARENTS = new Set(["Program", "BlockStatement", "SwitchCase"]);
+
 /**
  * Finds a function node from ancestors of a node.
  * @param {ASTNode} node A start node to find.
@@ -45,5 +48,6 @@ function hasSideEffect(node) {
 
 module.exports = {
     getUpperFunction,
-    hasSideEffect
+    hasSideEffect,
+    STATEMENT_LIST_PARENTS
 };

@@ -25,7 +25,7 @@ ruleTester.run("no-console", rule, {
     invalid: [
         {
             code: "console.log",
-            output: "",
+            output: "console.log",
             errors: [{ messageId: "unexpected", type: "MemberExpression" }]
         },
         {
@@ -33,19 +33,10 @@ ruleTester.run("no-console", rule, {
             output: "",
             errors: [{ messageId: "unexpected", type: "MemberExpression" }]
         },
-        {
-            code: "if (true) console.log",
-            output: "if (true) {}",
-            errors: [{ messageId: "unexpected", type: "MemberExpression" }]
-        },
-        {
-            code: "if (true) { console.log }",
-            output: "if (true) {  }",
-            errors: [{ messageId: "unexpected", type: "MemberExpression" }]
-        },
+
         {
             code: "if (true) console.log()",
-            output: "if (true) {}",
+            output: null,
             errors: [{ messageId: "unexpected", type: "MemberExpression" }]
         },
         {
@@ -65,7 +56,7 @@ ruleTester.run("no-console", rule, {
         },
         {
             code: "console.log(foo())",
-            output: null,
+            output: "",
             errors: [{ messageId: "unexpected", type: "MemberExpression" }]
         },
         {

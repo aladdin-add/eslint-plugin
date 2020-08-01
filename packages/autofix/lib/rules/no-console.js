@@ -6,43 +6,24 @@
 
 const ruleComposer = require("eslint-rule-composer");
 const utils = require("../utils");
+const { STATEMENT_LIST_PARENTS } = require("../ast-utils");
 
 const rule = utils.getFixableRule("no-console", true);
 
 module.exports = ruleComposer.mapReports(
     rule,
     problem => {
-        problem.fix = fixer => {
-            const { node } = problem;
-            const parentType = node.parent.type;
-            const isMethodCall = parentType === "CallExpression";
+        problem.fix = function(fixer) {
+            const ppparent = problem.node.type === "MemberExpression" &&
+                problem.node.parent.type === "CallExpression" &&
+                problem.node.parent.parent.parent;
 
-            if (parentType === "VariableDeclarator") {
-                return null;
+            if (STATEMENT_LIST_PARENTS.has(ppparent && ppparent.type)) {
+                return fixer.remove(problem.node.parent);
             }
 
-            if (isMethodCall && !node.parent.arguments.every(arg => arg.type === "Literal" || arg.type === "Identifier")) {
-                return null;
-            }
-
-            if (node.parent.parent) {
-                const grandType = node.parent.parent.type;
-                const maybeFlowType = isMethodCall && node.parent.parent.parent
-                    ? node.parent.parent.parent.type
-                    : grandType;
-
-                if (
-                    (maybeFlowType === "IfStatement" || maybeFlowType === "WhileStatement" || maybeFlowType === "ForStatement") &&
-                    (isMethodCall ? grandType === "ExpressionStatement" : parentType === "ExpressionStatement")
-                ) {
-                    return isMethodCall ? fixer.replaceText(node.parent, "{}") : fixer.replaceText(node, "{}");
-                }
-            }
-
-            return isMethodCall ? fixer.remove(node.parent) : fixer.remove(problem.node);
-
+            return null;
         };
-
         return problem;
     }
 );
