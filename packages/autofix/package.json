@@ -29,8 +29,7 @@
     "git-config": "0.0.7",
     "husky": "^4.2.3",
     "minimist": "^1.2.0",
-    "mocha": "^7.0.1",
-    "standard-version": "^7.1.0"
+    "mocha": "^7.0.1"
   },
   "peerDependencies": {
     "eslint": ">= 5.12.1"
