@@ -4,12 +4,11 @@
   "private": true,
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
   "description": "some eslint plugins",
-  "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.15.0",
     "eslint-config-eslint": "^6.0.0",
     "eslint-plugin-eslint-plugin": "^2.2.1",
-    "eslint-plugin-jsdoc": "^24.0.6",
+    "eslint-plugin-jsdoc": "^30.7.8",
     "eslint-plugin-node": "^11.1.0"
   },
   "scripts": {
