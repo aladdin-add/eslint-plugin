@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-web",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "唯然<weiran.zsd@outlook.com",
   "description": "Additional ESLint's rules for web.",
   "main": "./lib/index.js",
