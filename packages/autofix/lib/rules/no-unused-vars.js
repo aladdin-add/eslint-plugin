@@ -118,7 +118,16 @@ module.exports = ruleComposer.mapReports(
                         case "after-used": {
                             const comma = sourceCode.getTokenBefore(node, commaFilter);
 
-                            return [fixer.remove(comma), fixer.remove(node)];
+                            if (comma && comma.range && grand.range && comma.range[0] >= grand.range[0]) {
+                                return [fixer.remove(comma), fixer.remove(node)];
+                            } else {
+                                const commaAfter = sourceCode.getTokenAfter(node, commaFilter);
+                                if (commaAfter && commaAfter.range && grand.range && commaAfter.range[1] <= grand.range[1]) {
+                                    return [fixer.remove(node), fixer.remove(commaAfter)];
+                                }
+                            }
+
+                            return [fixer.remove(node)];
                         }
                         default:
                             throw new Error("Invalid rule config value for 'args'");
