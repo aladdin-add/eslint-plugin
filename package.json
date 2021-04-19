@@ -7,7 +7,7 @@
   "devDependencies": {
     "eslint": "^7.15.0",
     "eslint-config-eslint": "^6.0.0",
-    "eslint-plugin-eslint-plugin": "^2.2.1",
+    "eslint-plugin-eslint-plugin": "^3.0.2",
     "eslint-plugin-jsdoc": "^30.7.8",
     "eslint-plugin-node": "^11.1.0"
   },

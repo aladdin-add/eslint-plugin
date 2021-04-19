@@ -32,7 +32,7 @@
     "lodash": "^4.17.20"
   },
   "peerDependencies": {
-      "eslint": ">4"
+    "eslint": ">4"
   },
   "devDependencies": {
     "lint-staged": "^10.5.3",
