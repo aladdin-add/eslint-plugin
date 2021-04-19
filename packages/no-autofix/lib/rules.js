@@ -47,6 +47,7 @@ Object.keys(builtinRules).reduce((acc, cur) => {
 
 // support 3rd-party plugins
 // TODO: find a safer way, as this is no reliable(depends on the package manager)
+// TODO: support scoped package. e.g. @typescript-eslint/eslint-plugin
 const root = findUp.sync("package.json", { cwd: path.join(__dirname, "../../") });
 const mdir = path.join(root, "../node_modules/");
 const plugins = fs.readdirSync(mdir).filter(it => /^eslint-plugin/u.test(it));
