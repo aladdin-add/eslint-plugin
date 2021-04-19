@@ -18,7 +18,8 @@
 ## Install & usage
 
 ```bash
-npm i eslint-plugin-no-autofix -D
+$ npm i eslint-plugin-no-autofix -D # for npm
+$ yarn add eslint-plugin-no-autofix -D # for yarn
 ```
 
 add prefix "no-autofix/" to the rulename in eslintrc:
@@ -28,7 +29,18 @@ add prefix "no-autofix/" to the rulename in eslintrc:
   "plugins": ["no-autofix"],
   "rules": {
     "prefer-const": "off",
-    "no-autofix/prefer-const": "error"
+    "no-autofix/prefer-const": "error",
+  }
+}
+```
+or a 3rd-party plugin:
+
+```js
+{
+  "plugins": ["no-autofix", "react"],
+  "rules": {
+    "react/jsx-indent": "off",
+    "no-autofix/react/jsx-indent": "error",
   }
 }
 ```
