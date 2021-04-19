@@ -47,7 +47,7 @@ or a 3rd-party plugin:
 
 ## Supported rules
 
-It supports [all eslint core rules](https://eslint.org/docs/rules/).
+It supports [all eslint core rules](https://eslint.org/docs/rules/) and 3rd-party plugins(except for scoped packages).
 
 ## Acknowledgement
 
