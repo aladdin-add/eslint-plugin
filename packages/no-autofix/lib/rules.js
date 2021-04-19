@@ -8,8 +8,14 @@
 // ------------------------------------------------------------------------------
 // Requirements
 // ------------------------------------------------------------------------------
+const fs = require("fs");
+const path = require("path");
+const findUp = require("find-up");
+const eslint = require("eslint");
 const eslintVersion = require("eslint/package.json").version;
+const linter = new eslint.Linter();
 const { getNonFixableRule } = require("./utils");
+const allRules = {};
 const builtinRules = {};
 
 // eslint v6 restructed its codebase
@@ -30,10 +36,28 @@ if (eslintVersion >= "6.0.0") {
         }, builtinRules);
 }
 
-const allRules = {};
 
 Object.keys(builtinRules).reduce((acc, cur) => {
-    acc[cur] = getNonFixableRule(cur);
+    const rule = linter.getRules().get(cur);
+
+    acc[cur] = getNonFixableRule(rule);
     return acc;
 }, allRules);
+
+
+// support 3rd-party plugins
+// TODO: find a safer way, as this is no reliable(depends on the package manager)
+const root = findUp.sync("package.json", { cwd: path.join(__dirname, "../../") });
+const mdir = path.join(root, "../node_modules/");
+const plugins = fs.readdirSync(mdir).filter(it => /^eslint-plugin/u.test(it));
+
+plugins.forEach(it => {
+    const plugin = require(it);
+    const pluginName = it.replace(/^eslint-plugin-/u, "");
+
+    Object.keys(plugin.rules).forEach(rule => {
+        allRules[`${pluginName}/${rule}`] = getNonFixableRule(plugin.rules[rule]);
+    });
+});
+
 module.exports = allRules;

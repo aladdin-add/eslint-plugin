@@ -18,4 +18,9 @@ describe("should have the corrent entry", () => {
 
         assert(rule && rule.meta && rule.create);
     });
+
+    it("support 3rd-party plugins", () => {
+
+        // console.log(entry);
+    });
 });

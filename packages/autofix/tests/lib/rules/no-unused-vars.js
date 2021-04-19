@@ -25,15 +25,13 @@ ruleTester.run("no-unused-vars", rule, {
         },
 
         // https://github.com/aladdin-add/eslint-plugin/issues/58
-        {
-            code: `const { _ } = require('lib/locale.js');
+        `const { _ } = require('lib/locale.js');
             class OneDriveApi {
                 async example() {
                     throw new Error(_('oops'));
                 }
             }
             module.exports = { OneDriveApi };`
-        }
     ],
     invalid: [
         {

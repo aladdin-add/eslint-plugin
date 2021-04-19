@@ -22,28 +22,6 @@
     "test:web": "cd packages/web && npm t",
     "lint": "eslint packages/"
   },
-  "eslintConfig": {
-    "extends": [
-      "eslint-config-eslint",
-      "plugin:eslint-plugin/recommended"
-    ],
-    "plugins": [
-      "eslint-plugin"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "packages/*/tests/**/*"
-        ],
-        "env": {
-          "mocha": true
-        }
-      }
-    ]
-  },
-  "eslintIgnore": [
-    "node_modules/"
-  ],
   "license": "MIT",
   "repository": "https://github.com/aladdin-add/eslint-plugin",
   "homepage": "https://github.com/aladdin-add/eslint-plugin",

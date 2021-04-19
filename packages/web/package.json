@@ -31,6 +31,9 @@
     "esutils": "^2.0.3",
     "lodash": "^4.17.20"
   },
+  "peerDependencies": {
+      "eslint": ">4"
+  },
   "devDependencies": {
     "lint-staged": "^10.5.3",
     "markdownlint": "^0.22.0",

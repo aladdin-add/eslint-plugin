@@ -3,14 +3,9 @@
  * @author 唯然<weiran.zsd@outlook.com>
  */
 "use strict";
-const eslint = require("eslint");
 const ruleComposer = require("eslint-rule-composer");
 
-const linter = new eslint.Linter();
-
-exports.getNonFixableRule = function(ruleName) {
-    const rule = linter.getRules().get(ruleName);
-
+exports.getNonFixableRule = function(rule) {
     return ruleComposer.mapReports(
         Object.create(rule),
         problem => (problem.fix = null, problem) // eslint-disable-line
