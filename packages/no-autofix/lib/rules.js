@@ -15,6 +15,7 @@ const eslint = require("eslint");
 const eslintVersion = require("eslint/package.json").version;
 const linter = new eslint.Linter();
 const { getNonFixableRule } = require("./utils");
+const pkg = require(path.join(__dirname, "../package.json"));
 const allRules = {};
 const builtinRules = {};
 
@@ -50,7 +51,7 @@ Object.keys(builtinRules).reduce((acc, cur) => {
 // TODO: support scoped package. e.g. @typescript-eslint/eslint-plugin
 const root = findUp.sync("package.json", { cwd: path.join(__dirname, "../../") });
 const mdir = path.join(root, "../node_modules/");
-const plugins = fs.readdirSync(mdir).filter(it => /^eslint-plugin/u.test(it));
+const plugins = fs.readdirSync(mdir).filter(it => /^eslint-plugin/u.test(it) && it !== pkg.name);
 
 plugins.forEach(it => {
     const plugin = require(it);
