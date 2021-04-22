@@ -18,9 +18,7 @@ _module._findPath = (request, paths, isMain) => {
             // versions work as expected.
             // eslint-disable-next-line no-unused-vars
         } catch (e) {
-            const mpath = path.join(__dirname, `./packages/${request.slice("eslint-plugin-".length)}`);
-
-            return require.resolve(mpath);
+            return path.join(__dirname, `./packages/${request.slice("eslint-plugin-".length)}`);
         }
     }
     return r;
