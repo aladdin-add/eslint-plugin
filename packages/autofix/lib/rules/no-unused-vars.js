@@ -116,6 +116,21 @@ module.exports = ruleComposer.mapReports(
                             return fixer.insertTextBefore(node, prefix);
                         }
                         case "after-used": {
+                            const tokenBefore = sourceCode.getTokenBefore(node)
+                            const tokenAfter = sourceCode.getTokenAfter(node)
+
+                            if (
+                              parent.params.length === 1 &&
+                              !(tokenBefore && tokenBefore.value === '(') &&
+                              !(tokenAfter && tokenAfter.value === ')')
+                            ) {
+                                return [
+                                  fixer.insertTextBefore(node, '('),
+                                  fixer.insertTextAfter(node, ')'),
+                                  fixer.remove(node)
+                                ]
+                            }
+
                             const comma = sourceCode.getTokenBefore(node, commaFilter);
 
                             if (comma && comma.range && grand.range && comma.range[0] >= grand.range[0]) {
@@ -126,7 +141,6 @@ module.exports = ruleComposer.mapReports(
                             if (commaAfter && commaAfter.range && grand.range && commaAfter.range[1] <= grand.range[1]) {
                                 return [fixer.remove(node), fixer.remove(commaAfter)];
                             }
-
 
                             return [fixer.remove(node)];
                         }
