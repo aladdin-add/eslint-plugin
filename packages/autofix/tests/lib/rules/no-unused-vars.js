@@ -242,11 +242,11 @@ ruleTester.run("no-unused-vars", rule, {
             output: "const foo = () => {}; foo();",
             parserOptions: { ecmaVersion: 2018 },
             errors: [
-              { type: "Identifier" }
+                { type: "Identifier" }
             ],
             options: [{
                 args: "after-used",
-                argsIgnorePattern: "^_",
+                argsIgnorePattern: "^_"
             }]
         },
         {
@@ -254,11 +254,11 @@ ruleTester.run("no-unused-vars", rule, {
             output: "const foo = () => {}; foo();",
             parserOptions: { ecmaVersion: 2018 },
             errors: [
-              { type: "Identifier" }
+                { type: "Identifier" }
             ],
             options: [{
                 args: "after-used",
-                argsIgnorePattern: "^_",
+                argsIgnorePattern: "^_"
             }]
         },
         {
