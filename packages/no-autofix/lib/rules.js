@@ -12,16 +12,20 @@ const fs = require("fs");
 const path = require("path");
 const findUp = require("find-up");
 const eslint = require("eslint");
-const eslintVersion = require("eslint/package.json").version;
+const eslintVersion = Number.parseInt(require("eslint/package.json").version, 10);
 const linter = new eslint.Linter();
 const { getNonFixableRule } = require("./utils");
 const pkg = require(path.join(__dirname, "../package.json"));
 const allRules = {};
 const builtinRules = {};
 
-// eslint v6 restructed its codebase
-// TODO: this might be unreliable
-if (eslintVersion >= "6.0.0") {
+if (eslintVersion >= 8) {
+    const { builtinRules: rules } = require("eslint/use-at-your-own-risk"); // eslint-disable-line node/no-missing-require
+
+    for (const [ruleId, rule] of rules) {
+        builtinRules[ruleId] = rule;
+    }
+} else if (eslintVersion >= 6) {
     const builtin = require("eslint/lib/rules"); // eslint-disable-line node/no-missing-require
 
     for (const [ruleId, rule] of builtin) {

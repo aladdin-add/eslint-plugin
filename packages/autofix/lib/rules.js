@@ -11,7 +11,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const eslintVersion = require("eslint/package.json").version;
+const eslintVersion = Number.parseInt(require("eslint/package.json").version, 10);
 
 
 /**
@@ -32,7 +32,15 @@ const allRules = {};
 
 // eslint v6 restructed its codebase
 // TODO: this might be unreliable
-if (eslintVersion >= "6.0.0") {
+if (eslintVersion >= 8) {
+    const { builtinRules } = require("eslint/use-at-your-own-risk"); // eslint-disable-line node/no-missing-require
+
+    for (const [ruleId, rule] of builtinRules) {
+        if (rule.meta.fixable) {
+            allRules[ruleId] = rule;
+        }
+    }
+} else if (eslintVersion >= 6) {
     const builtin = require("eslint/lib/rules");
 
     for (const [ruleId, rule] of builtin) {
@@ -52,7 +60,7 @@ if (eslintVersion >= "6.0.0") {
 }
 
 // import all rules in lib/rules
-fs.readdirSync(`${__dirname}/rules`)
+fs.readdirSync(path.join(__dirname, "rules"))
     .filter(fileName => fileName.endsWith(".js") && /^[^._]/u.test(fileName))
     .map(fileName => fileName.replace(/\.js$/u, ""))
     .reduce((rules, ruleName) => Object.assign(rules, { [ruleName]: loadRule(ruleName) }), allRules);

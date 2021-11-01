@@ -8,7 +8,9 @@ const path = require("path");
 
 module.exports = {
     meta: {
-        fixable: "code"
+        fixable: "code",
+        type: "problem",
+        schema: []
     },
     create: context => ({
         CallExpression: node => {

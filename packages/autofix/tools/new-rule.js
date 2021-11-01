@@ -1,3 +1,4 @@
+/* eslint-disable node/no-process-exit */
 /* eslint no-console: 0, no-process-exit: 0*/
 "use strict";
 
@@ -20,7 +21,7 @@ const testsPath = path.join(__dirname, `../tests/lib/rules/${ruleName}.js`);
 
 try {
     require.resolve(`eslint/lib/rules/${ruleName}`);
-} catch (_) {
+} catch (e) { // eslint-disable-line no-unused-vars
     console.error(`Cannot find ESLint rule '\u001b[31m${ruleName}\u001b[39m'.`);
     process.exit(1);
 }
