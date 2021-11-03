@@ -73,7 +73,7 @@ allModules.filter(it => it.startsWith("@")).forEach(it => {
 plugins.forEach(it => {
     const plugin = require(it);
     const pluginName = it.replace(/eslint-plugin(-?)/u, "").replace(/\/\//u, "").replace(/\/$/u, "");
-    console.log(pluginName)
+
     Object.keys(plugin.rules || {}).forEach(rule => {
         allRules[`${pluginName}/${rule}`] = getNonFixableRule(plugin.rules[rule]);
     });
