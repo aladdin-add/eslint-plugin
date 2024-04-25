@@ -11,7 +11,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const eslintVersion = Number.parseInt(require("eslint/package.json").version, 10);
+const {eslintVersion} = require("./utils.js")
 
 
 /**
@@ -30,10 +30,10 @@ function loadRule(ruleName) {
 
 const allRules = {};
 
-// eslint v6 restructed its codebase
+// eslint v6 restructured its codebase
 // TODO: this might be unreliable
 if (eslintVersion >= 8) {
-    const { builtinRules } = require("eslint/use-at-your-own-risk"); // eslint-disable-line node/no-missing-require
+    const { builtinRules } = require("eslint/use-at-your-own-risk");
 
     for (const [ruleId, rule] of builtinRules) {
         if (rule.meta.fixable) {
@@ -49,7 +49,7 @@ if (eslintVersion >= 8) {
         }
     }
 } else {
-    const builtin = require("eslint/lib/built-in-rules-index"); // eslint-disable-line node/no-missing-require
+    const builtin = require("eslint/lib/built-in-rules-index"); // eslint-disable-line n/no-missing-require
 
     Object.keys(builtin)
         .filter(rule => builtin[rule].meta.fixable)

@@ -5,11 +5,12 @@
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
   "description": "some eslint plugins",
   "devDependencies": {
-    "eslint": "^8.1.0",
-    "eslint-config-eslint": "^7.0.0",
-    "eslint-plugin-eslint-plugin": "^4.0.1",
-    "eslint-plugin-jsdoc": "^37.0.3",
-    "eslint-plugin-node": "^11.1.0"
+    "eslint": "^9.1.1",
+    "eslint-config-eslint": "^9.0.0",
+    "eslint-plugin-autofix": "file:./packages/autofix",
+    "eslint-plugin-eslint-plugin": "^6.0.0",
+    "eslint-plugin-no-autofix": "file:./packages/no-autofix",
+    "globals": "^15.0.0"
   },
   "scripts": {
     "lint": "eslint packages/",

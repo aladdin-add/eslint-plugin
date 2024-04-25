@@ -16,7 +16,7 @@ const rule = require("../../../lib/rules/no-alert"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({ languageOptions: { ecmaVersion: 5, sourceType: "script" } });
 
 ruleTester.run("no-alert", rule, {
     valid: [

@@ -12,47 +12,37 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
-          - '18'
-          - '17'
-          - '16'
+          - 22
+          - 21
+          - 20
+          - 18
         os:
           - ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
+      - run: npm install --force # ts-eslint does not support eslint v9 yet.
       - run: npm test
 
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-            node-version: '16'
-      - run: npm install
+          node-version: "lts/*"
+      - run: npm install --force # ts-eslint does not support eslint v9 yet.
       - run: npm run lint
 
-  eslint6:
+  eslint8:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
-          node-version: '16'
-    - run: npm install
-    - run: npm install --save-dev eslint@6
-    - run: npm test
-
-  eslint7:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-          node-version: '16'
-    - run: npm install
-    - run: npm install --save-dev eslint@7
+        node-version: "lts/*"
+    - run: npm install --force
+    - run: npm install --save-dev eslint@8
     - run: npm test

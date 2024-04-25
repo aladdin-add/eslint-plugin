@@ -19,7 +19,7 @@ const RuleTester = require("eslint").RuleTester;
 
 const errors = [{ message: "Use the spread operator instead of '.apply()'.", type: "CallExpression" }];
 
-const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 6 } });
+const ruleTester = new RuleTester();
 
 ruleTester.run("prefer-spread", rule, {
     valid: [

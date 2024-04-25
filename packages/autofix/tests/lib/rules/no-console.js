@@ -25,7 +25,7 @@ ruleTester.run("no-console", rule, {
     invalid: [
         {
             code: "console.log",
-            output: "console.log",
+            output: null,
             errors: [{ messageId: "unexpected", type: "MemberExpression" }]
         },
         {

@@ -7,7 +7,7 @@
 const rule = require("../../../lib/rules").quotes,
     RuleTester = require("eslint").RuleTester;
 
-const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 9 } });
+const ruleTester = new RuleTester({ languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } } });
 
 ruleTester.run("quotes", rule, {
     valid: [
@@ -18,58 +18,57 @@ ruleTester.run("quotes", rule, {
         { code: "var foo = 1;", options: ["double"] },
         { code: "var foo = \"'\";", options: ["single", { avoidEscape: true }] },
         { code: "var foo = '\"';", options: ["double", { avoidEscape: true }] },
-        { code: "var foo = <>Hello world</>;", options: ["single"], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = <>Hello world</>;", options: ["double"], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = <>Hello world</>;", options: ["double", { avoidEscape: true }], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = <>Hello world</>;", options: ["backtick"], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = <div>Hello world</div>;", options: ["single"], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = <div id=\"foo\"></div>;", options: ["single"], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = <div>Hello world</div>;", options: ["double"], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = <div>Hello world</div>;", options: ["double", { avoidEscape: true }], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = `bar`;", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `bar 'baz'`;", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `bar \"baz\"`;", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
+        { code: "var foo = <>Hello world</>;", options: ["single"], },
+        { code: "var foo = <>Hello world</>;", options: ["double"], },
+        { code: "var foo = <>Hello world</>;", options: ["double", { avoidEscape: true }], },
+        { code: "var foo = <>Hello world</>;", options: ["backtick"], },
+        { code: "var foo = <div>Hello world</div>;", options: ["single"], },
+        { code: "var foo = <div id=\"foo\"></div>;", options: ["single"], },
+        { code: "var foo = <div>Hello world</div>;", options: ["double"], },
+        { code: "var foo = <div>Hello world</div>;", options: ["double", { avoidEscape: true }], },
+        { code: "var foo = `bar`;", options: ["backtick"], },
+        { code: "var foo = `bar 'baz'`;", options: ["backtick"], },
+        { code: "var foo = `bar \"baz\"`;", options: ["backtick"], },
         { code: "var foo = 1;", options: ["backtick"] },
         { code: "var foo = \"a string containing `backtick` quotes\";", options: ["backtick", { avoidEscape: true }] },
-        { code: "var foo = <div id=\"foo\"></div>;", options: ["backtick"], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
-        { code: "var foo = <div>Hello world</div>;", options: ["backtick"], parserOptions: { ecmaVersion: 6, ecmaFeatures: { jsx: true } } },
+        { code: "var foo = <div id=\"foo\"></div>;", options: ["backtick"], },
+        { code: "var foo = <div>Hello world</div>;", options: ["backtick"], },
 
         // Backticks are only okay if they have substitutions, contain a line break, or are tagged
-        { code: "var foo = `back\ntick`;", options: ["single"], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `back\rtick`;", options: ["single"], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `back\u2028tick`;", options: ["single"], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `back\u2029tick`;", options: ["single"], parserOptions: { ecmaVersion: 6 } },
+        { code: "var foo = `back\ntick`;", options: ["single"], },
+        { code: "var foo = `back\rtick`;", options: ["single"], },
+        { code: "var foo = `back\u2028tick`;", options: ["single"], },
+        { code: "var foo = `back\u2029tick`;", options: ["single"], },
         {
             code: "var foo = `back\\\\\ntick`;", // 2 backslashes followed by a newline
             options: ["single"],
-            parserOptions: { ecmaVersion: 6 }
         },
-        { code: "var foo = `back\\\\\\\\\ntick`;", options: ["single"], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `\n`;", options: ["single"], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `back${x}tick`;", options: ["double"], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = tag`backtick`;", options: ["double"], parserOptions: { ecmaVersion: 6 } },
+        { code: "var foo = `back\\\\\\\\\ntick`;", options: ["single"], },
+        { code: "var foo = `\n`;", options: ["single"], },
+        { code: "var foo = `back${x}tick`;", options: ["double"], },
+        { code: "var foo = tag`backtick`;", options: ["double"], },
 
         // Backticks are also okay if allowTemplateLiterals
-        { code: "var foo = `bar 'foo' baz` + 'bar';", options: ["single", { allowTemplateLiterals: true }], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `bar 'foo' baz` + \"bar\";", options: ["double", { allowTemplateLiterals: true }], parserOptions: { ecmaVersion: 6 } },
-        { code: "var foo = `bar 'foo' baz` + `bar`;", options: ["backtick", { allowTemplateLiterals: true }], parserOptions: { ecmaVersion: 6 } },
+        { code: "var foo = `bar 'foo' baz` + 'bar';", options: ["single", { allowTemplateLiterals: true }], },
+        { code: "var foo = `bar 'foo' baz` + \"bar\";", options: ["double", { allowTemplateLiterals: true }], },
+        { code: "var foo = `bar 'foo' baz` + `bar`;", options: ["backtick", { allowTemplateLiterals: true }], },
 
         // `backtick` should not warn the directive prologues.
-        { code: "\"use strict\"; var foo = `backtick`;", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
-        { code: "\"use strict\"; 'use strong'; \"use asm\"; var foo = `backtick`;", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
-        { code: "function foo() { \"use strict\"; \"use strong\"; \"use asm\"; var foo = `backtick`; }", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
-        { code: "(function() { 'use strict'; 'use strong'; 'use asm'; var foo = `backtick`; })();", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
-        { code: "(() => { \"use strict\"; \"use strong\"; \"use asm\"; var foo = `backtick`; })();", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
+        { code: "\"use strict\"; var foo = `backtick`;", options: ["backtick"], },
+        { code: "\"use strict\"; 'use strong'; \"use asm\"; var foo = `backtick`;", options: ["backtick"], },
+        { code: "function foo() { \"use strict\"; \"use strong\"; \"use asm\"; var foo = `backtick`; }", options: ["backtick"], },
+        { code: "(function() { 'use strict'; 'use strong'; 'use asm'; var foo = `backtick`; })();", options: ["backtick"], },
+        { code: "(() => { \"use strict\"; \"use strong\"; \"use asm\"; var foo = `backtick`; })();", options: ["backtick"], },
 
         // `backtick` should not warn import/export sources.
-        { code: "import \"a\"; import 'b';", options: ["backtick"], parserOptions: { sourceType: "module" } },
-        { code: "import a from \"a\"; import b from 'b';", options: ["backtick"], parserOptions: { sourceType: "module" } },
-        { code: "export * from \"a\"; export * from 'b';", options: ["backtick"], parserOptions: { sourceType: "module" } },
+        { code: "import \"a\"; import 'b';", options: ["backtick"], },
+        { code: "import a from \"a\"; import b from 'b';", options: ["backtick"], },
+        { code: "export * from \"a\"; export * from 'b';", options: ["backtick"], },
 
         // `backtick` should not warn property/method names (not computed).
-        { code: "var obj = {\"key0\": 0, 'key1': 1};", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
-        { code: "class Foo { 'bar'(){} }", options: ["backtick"], parserOptions: { ecmaVersion: 6 } },
-        { code: "class Foo { static ''(){} }", options: ["backtick"], parserOptions: { ecmaVersion: 6 } }
+        { code: "var obj = {\"key0\": 0, 'key1': 1};", options: ["backtick"], },
+        { code: "class Foo { 'bar'(){} }", options: ["backtick"], },
+        { code: "class Foo { static ''(){} }", options: ["backtick"], }
     ],
     invalid: [
         {
@@ -87,9 +86,6 @@ ruleTester.run("quotes", rule, {
             code: "var foo = `bar`;",
             output: null,
             options: ["single"],
-            parserOptions: {
-                ecmaVersion: 6
-            },
             errors: [{ message: "Strings must use singlequote.", type: "TemplateLiteral" }]
         },
         {
@@ -116,9 +112,6 @@ ruleTester.run("quotes", rule, {
             code: "var foo = `bar`;",
             output: null,
             options: ["double"],
-            parserOptions: {
-                ecmaVersion: 6
-            },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
@@ -187,21 +180,18 @@ ruleTester.run("quotes", rule, {
             code: "var foo = `backtick`; \"use strict\";",
             output: null,
             options: ["backtick"],
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use backtick.", type: "Literal" }]
         },
         {
             code: "{ \"use strict\"; var foo = `backtick`; }",
             output: null,
             options: ["backtick"],
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use backtick.", type: "Literal" }]
         },
         {
             code: "if (1) { \"use strict\"; var foo = `backtick`; }",
             output: null,
             options: ["backtick"],
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use backtick.", type: "Literal" }]
         },
 
@@ -210,7 +200,6 @@ ruleTester.run("quotes", rule, {
             code: "var obj = {[\"key0\"]: 0, ['key1']: 1};",
             output: null,
             options: ["backtick"],
-            parserOptions: { ecmaVersion: 6 },
             errors: [
                 { message: "Strings must use backtick.", type: "Literal" },
                 { message: "Strings must use backtick.", type: "Literal" }
@@ -220,7 +209,6 @@ ruleTester.run("quotes", rule, {
             code: "class Foo { ['a'](){} static ['b'](){} }",
             output: null,
             options: ["backtick"],
-            parserOptions: { ecmaVersion: 6 },
             errors: [
                 { message: "Strings must use backtick.", type: "Literal" },
                 { message: "Strings must use backtick.", type: "Literal" }
@@ -232,7 +220,6 @@ ruleTester.run("quotes", rule, {
             code: "<div blah={\"blah\"} />",
             output: null,
             options: ["single"],
-            parserOptions: { ecmaFeatures: { jsx: true } },
             errors: [
                 { message: "Strings must use singlequote.", type: "Literal" }
             ]
@@ -241,7 +228,6 @@ ruleTester.run("quotes", rule, {
             code: "<div blah={'blah'} />",
             output: null,
             options: ["double"],
-            parserOptions: { ecmaFeatures: { jsx: true } },
             errors: [
                 { message: "Strings must use doublequote.", type: "Literal" }
             ]
@@ -250,7 +236,6 @@ ruleTester.run("quotes", rule, {
             code: "<div blah={'blah'} />",
             output: null,
             options: ["backtick"],
-            parserOptions: { ecmaFeatures: { jsx: true } },
             errors: [
                 { message: "Strings must use backtick.", type: "Literal" }
             ]
@@ -260,37 +245,31 @@ ruleTester.run("quotes", rule, {
         {
             code: "`use strict`;",
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
             code: "function foo() { `use strict`; foo(); }",
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
             code: "foo = function() { `use strict`; foo(); }",
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
             code: "() => { `use strict`; foo(); }",
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
             code: "() => { foo(); `use strict`; }",
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
             code: "foo(); `use strict`;",
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
 
@@ -298,25 +277,21 @@ ruleTester.run("quotes", rule, {
         {
             code: "var foo = `foo\\nbar`;",
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
             code: "var foo = `foo\\\nbar`;", // 1 backslash followed by a newline
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
             code: "var foo = `foo\\\\\\\nbar`;", // 3 backslashes followed by a newline
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral" }]
         },
         {
             code: "````",
             output: null,
-            parserOptions: { ecmaVersion: 6 },
             errors: [{ message: "Strings must use doublequote.", type: "TemplateLiteral", line: 1, column: 1 }]
         }
     ]

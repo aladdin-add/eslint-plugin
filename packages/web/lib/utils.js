@@ -965,6 +965,7 @@ module.exports = {
      * 0o5     // false
      * 5e0     // false
      * '5'     // false
+     *
      */
     isDecimalInteger(node) {
         return node.type === "Literal" && typeof node.value === "number" && /^(0|[1-9]\d*)$/u.test(node.raw);
@@ -1203,7 +1204,7 @@ module.exports = {
         return sourceCode.getText().slice(leftToken.range[0], rightToken.range[1]);
     },
 
-    /*
+    /**
      * Determine if a node has a possiblity to be an Error object
      * @param  {ASTNode} node  ASTNode to check
      * @returns {boolean} True if there is a chance it contains an Error obj

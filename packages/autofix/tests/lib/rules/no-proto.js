@@ -16,7 +16,7 @@ const RuleTester = require("eslint").RuleTester;
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
-const errors = [{ type: "MemberExpression" }];
+const errors = 1;
 
 ruleTester.run("no-proto", rule, {
     valid: [

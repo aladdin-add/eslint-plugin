@@ -94,7 +94,7 @@ module.exports = {
         return {
             CallExpression(node) {
                 const callee = node.callee,
-                    currentScope = context.getScope();
+                    currentScope = context.sourceCode.getScope?.(node) || context.getScope();
 
                 // without window.
                 if (callee.type === "Identifier") {

@@ -7,9 +7,15 @@
 const all = require("./configs/all");
 const rules = require("./rules");
 
-module.exports = {
+const pkg = {
     configs: {
         all
     },
     rules
 };
+
+Object.assign(pkg.configs, {
+    "flat/all": { plugins: { "no-autofix": pkg }, rules: pkg.configs.all.rules }
+});
+
+module.exports = pkg;

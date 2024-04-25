@@ -9,7 +9,7 @@ const recommended = require("./configs/recommended");
 const unsafe = require("./configs/unsafe");
 const rules = require("./rules");
 
-module.exports = {
+const pkg = {
     configs: {
         all,
         recommended,
@@ -17,3 +17,11 @@ module.exports = {
     },
     rules
 };
+
+Object.assign(pkg.configs, {
+    "flat/all": { ...pkg.configs.all, plugins: { autofix: pkg }, rules: pkg.configs.all.rules },
+    "flat/recommended": { ...pkg.configs.recommended, plugins: { autofix: pkg }, rules: pkg.configs.recommended.rules },
+    "flat/unsafe": { ...pkg.configs.unsafe, plugins: { autofix: pkg }, rules: pkg.configs.unsafe.rules }
+});
+
+module.exports = pkg;

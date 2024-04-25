@@ -1,5 +1,5 @@
 /**
- * @fileoverview expored all rules in the plugin.
+ * @fileoverview export all rules in the plugin.
  * @author 唯然<weiran.zsd@outlook.com>
  */
 
@@ -32,7 +32,7 @@ if (eslintVersion >= 8) {
         builtinRules[ruleId] = rule;
     }
 } else {
-    const builtin = require("eslint/lib/built-in-rules-index"); // eslint-disable-line node/no-missing-require
+    const builtin = require("eslint/lib/built-in-rules-index"); // eslint-disable-line n/no-missing-require
 
     Object.keys(builtin)
         .reduce((acc, cur) => {
@@ -43,7 +43,7 @@ if (eslintVersion >= 8) {
 
 
 Object.keys(builtinRules).reduce((acc, cur) => {
-    const rule = linter.getRules().get(cur);
+    const rule = builtinRules[cur] || builtinRules.get(cur);
 
     acc[cur] = getNonFixableRule(rule);
     return acc;

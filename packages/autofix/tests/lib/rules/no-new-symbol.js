@@ -15,8 +15,8 @@ const RuleTester = require("eslint").RuleTester;
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester({ env: { es6: true } });
-const errors = [{ type: "Identifier" }];
+const ruleTester = new RuleTester();
+const errors = 1;
 
 ruleTester.run("no-new-symbol", rule, {
     valid: [

@@ -35,7 +35,6 @@ ruleTester.run("valid-typeof", rule, {
         },
         {
             code: "typeof a === `strnig`",
-            parserOptions: { ecmaVersion: 6 },
             output: "typeof a === \"string\"",
             errors: [{ messageId: "invalidValue", type: "TemplateLiteral" }]
         },

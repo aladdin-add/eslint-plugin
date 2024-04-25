@@ -16,7 +16,7 @@ const RuleTester = require("eslint").RuleTester;
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
-const errors = [{ type: "CallExpression" }];
+const errors = 1;
 
 ruleTester.run("no-prototype-builtins", rule, {
     valid: [

@@ -25,23 +25,22 @@ ruleTester.run("no-useless-catch", rule, {
         {
             code: "try {} catch (e) { throw e }",
             output: "{}",
-            errors: [{ type: "TryStatement" }]
+            errors: 1
         },
         {
             code: "try { fn() } catch (e) { throw e }",
             output: "{ fn() }",
-            errors: [{ type: "TryStatement" }]
+            errors: 1
         },
         {
             code: "let a; try { let a } catch (e) { throw e };",
             output: "let a; { let a };",
-            parserOptions: { ecmaVersion: 6 },
-            errors: [{ type: "TryStatement" }]
+            errors: 1
         },
         {
             code: "try {} catch (e) { throw e } finally {}",
             output: "try {}  finally {}",
-            errors: [{ type: "CatchClause" }]
+            errors:1
         }
     ]
 });

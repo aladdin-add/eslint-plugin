@@ -16,7 +16,7 @@ const RuleTester = require("eslint").RuleTester;
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
-const errors = [{ type: "MemberExpression" }];
+const errors = 1;
 
 ruleTester.run("no-caller", rule, {
     valid: [
@@ -40,7 +40,6 @@ ruleTester.run("no-caller", rule, {
         },
         {
             code: "var foo = () => { arguments.callee }",
-            parserOptions: { ecmaVersion: 6 },
             output: null,
             errors
         },

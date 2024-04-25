@@ -26,18 +26,18 @@ ruleTester.run("radix", rule, {
         {
             code: "parseInt(a)",
             output: "parseInt(a, 10)",
-            errors: [{ type: "CallExpression" }]
+            errors: 1
         },
         {
             code: "parseInt(a, 10)",
             options: ["as-needed"],
             output: "parseInt(a)",
-            errors: [{ type: "CallExpression" }]
+            errors: 1
         },
         {
             code: "parseInt(a, '10')",
             output: null,
-            errors: [{ type: "CallExpression" }]
+            errors: 1
         }
     ]
 });
