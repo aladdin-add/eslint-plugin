@@ -22,4 +22,3 @@ Object.keys(allRules)
     .reduce((rules, ruleName) => Object.assign(rules, { [`${PLUGIN_NAME}/${ruleName}`]: "error" }), all.rules);
 
 module.exports = all;
-

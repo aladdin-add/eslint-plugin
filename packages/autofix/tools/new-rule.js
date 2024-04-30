@@ -1,5 +1,4 @@
-/* eslint-disable node/no-process-exit */
-/* eslint no-console: 0, no-process-exit: 0*/
+/* eslint no-console: 0, n/no-process-exit: 0*/
 "use strict";
 
 const fs = require("fs");

@@ -21,7 +21,10 @@ module.exports = {
             url: "https://eslint.org/docs/rules/no-script-url"
         },
 
-        schema: []
+        schema: [],
+        messages: {
+            unexpected: "Script URL is a form of eval."
+        }
     },
 
     create(context) {
@@ -33,7 +36,7 @@ module.exports = {
                     const value = node.value.toLowerCase();
 
                     if (value.indexOf("javascript:") === 0) {
-                        context.report({ node, message: "Script URL is a form of eval." });
+                        context.report({ node, messageId: "unexpected" });
                     }
                 }
             }

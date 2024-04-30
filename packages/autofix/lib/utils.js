@@ -10,12 +10,16 @@ exports.eslintVersion = Number.parseInt(require("eslint/package.json").version, 
 // TODO: this might be unreliable
 if (exports.eslintVersion >= 8) {
     const { builtinRules } = require("eslint/use-at-your-own-risk");
+
     exports.builtinRules = builtinRules;
 } else if (exports.eslintVersion >= 6) {
+    // eslint-disable-next-line n/no-missing-require
     const builtin = require("eslint/lib/rules");
+
     exports.builtinRules = builtin;
 } else {
     const builtin = require("eslint/lib/built-in-rules-index"); // eslint-disable-line n/no-missing-require
+
     exports.builtinRules = builtin;
 }
 

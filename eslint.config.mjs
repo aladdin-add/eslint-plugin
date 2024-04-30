@@ -11,7 +11,11 @@ export default [
     { files: ["packages/*/tests/**/*"], languageOptions: { globals: globals.mocha } },
     {
         plugins: { autofix: autofixPlugin, "no-autofix": noAutofixPlugin },
-        rules: { "eslint-comments/require-description": 0, "no-autofix/eslint-plugin/test-case-shorthand-strings": "error" }
+        rules: {
+            "eslint-comments/require-description": 0,
+            "no-autofix/eslint-plugin/test-case-shorthand-strings": 2,
+            "@eslint-community/eslint-comments/require-description": 0
+        }
     },
     ...nPlugin.configs["flat/mixed-esm-and-cjs"]
 ];

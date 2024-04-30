@@ -18,57 +18,57 @@ ruleTester.run("quotes", rule, {
         { code: "var foo = 1;", options: ["double"] },
         { code: "var foo = \"'\";", options: ["single", { avoidEscape: true }] },
         { code: "var foo = '\"';", options: ["double", { avoidEscape: true }] },
-        { code: "var foo = <>Hello world</>;", options: ["single"], },
-        { code: "var foo = <>Hello world</>;", options: ["double"], },
-        { code: "var foo = <>Hello world</>;", options: ["double", { avoidEscape: true }], },
-        { code: "var foo = <>Hello world</>;", options: ["backtick"], },
-        { code: "var foo = <div>Hello world</div>;", options: ["single"], },
-        { code: "var foo = <div id=\"foo\"></div>;", options: ["single"], },
-        { code: "var foo = <div>Hello world</div>;", options: ["double"], },
-        { code: "var foo = <div>Hello world</div>;", options: ["double", { avoidEscape: true }], },
-        { code: "var foo = `bar`;", options: ["backtick"], },
-        { code: "var foo = `bar 'baz'`;", options: ["backtick"], },
-        { code: "var foo = `bar \"baz\"`;", options: ["backtick"], },
+        { code: "var foo = <>Hello world</>;", options: ["single"] },
+        { code: "var foo = <>Hello world</>;", options: ["double"] },
+        { code: "var foo = <>Hello world</>;", options: ["double", { avoidEscape: true }] },
+        { code: "var foo = <>Hello world</>;", options: ["backtick"] },
+        { code: "var foo = <div>Hello world</div>;", options: ["single"] },
+        { code: "var foo = <div id=\"foo\"></div>;", options: ["single"] },
+        { code: "var foo = <div>Hello world</div>;", options: ["double"] },
+        { code: "var foo = <div>Hello world</div>;", options: ["double", { avoidEscape: true }] },
+        { code: "var foo = `bar`;", options: ["backtick"] },
+        { code: "var foo = `bar 'baz'`;", options: ["backtick"] },
+        { code: "var foo = `bar \"baz\"`;", options: ["backtick"] },
         { code: "var foo = 1;", options: ["backtick"] },
         { code: "var foo = \"a string containing `backtick` quotes\";", options: ["backtick", { avoidEscape: true }] },
-        { code: "var foo = <div id=\"foo\"></div>;", options: ["backtick"], },
-        { code: "var foo = <div>Hello world</div>;", options: ["backtick"], },
+        { code: "var foo = <div id=\"foo\"></div>;", options: ["backtick"] },
+        { code: "var foo = <div>Hello world</div>;", options: ["backtick"] },
 
         // Backticks are only okay if they have substitutions, contain a line break, or are tagged
-        { code: "var foo = `back\ntick`;", options: ["single"], },
-        { code: "var foo = `back\rtick`;", options: ["single"], },
-        { code: "var foo = `back\u2028tick`;", options: ["single"], },
-        { code: "var foo = `back\u2029tick`;", options: ["single"], },
+        { code: "var foo = `back\ntick`;", options: ["single"] },
+        { code: "var foo = `back\rtick`;", options: ["single"] },
+        { code: "var foo = `back\u2028tick`;", options: ["single"] },
+        { code: "var foo = `back\u2029tick`;", options: ["single"] },
         {
             code: "var foo = `back\\\\\ntick`;", // 2 backslashes followed by a newline
-            options: ["single"],
+            options: ["single"]
         },
-        { code: "var foo = `back\\\\\\\\\ntick`;", options: ["single"], },
-        { code: "var foo = `\n`;", options: ["single"], },
-        { code: "var foo = `back${x}tick`;", options: ["double"], },
-        { code: "var foo = tag`backtick`;", options: ["double"], },
+        { code: "var foo = `back\\\\\\\\\ntick`;", options: ["single"] },
+        { code: "var foo = `\n`;", options: ["single"] },
+        { code: "var foo = `back${x}tick`;", options: ["double"] },
+        { code: "var foo = tag`backtick`;", options: ["double"] },
 
         // Backticks are also okay if allowTemplateLiterals
-        { code: "var foo = `bar 'foo' baz` + 'bar';", options: ["single", { allowTemplateLiterals: true }], },
-        { code: "var foo = `bar 'foo' baz` + \"bar\";", options: ["double", { allowTemplateLiterals: true }], },
-        { code: "var foo = `bar 'foo' baz` + `bar`;", options: ["backtick", { allowTemplateLiterals: true }], },
+        { code: "var foo = `bar 'foo' baz` + 'bar';", options: ["single", { allowTemplateLiterals: true }] },
+        { code: "var foo = `bar 'foo' baz` + \"bar\";", options: ["double", { allowTemplateLiterals: true }] },
+        { code: "var foo = `bar 'foo' baz` + `bar`;", options: ["backtick", { allowTemplateLiterals: true }] },
 
         // `backtick` should not warn the directive prologues.
-        { code: "\"use strict\"; var foo = `backtick`;", options: ["backtick"], },
-        { code: "\"use strict\"; 'use strong'; \"use asm\"; var foo = `backtick`;", options: ["backtick"], },
-        { code: "function foo() { \"use strict\"; \"use strong\"; \"use asm\"; var foo = `backtick`; }", options: ["backtick"], },
-        { code: "(function() { 'use strict'; 'use strong'; 'use asm'; var foo = `backtick`; })();", options: ["backtick"], },
-        { code: "(() => { \"use strict\"; \"use strong\"; \"use asm\"; var foo = `backtick`; })();", options: ["backtick"], },
+        { code: "\"use strict\"; var foo = `backtick`;", options: ["backtick"] },
+        { code: "\"use strict\"; 'use strong'; \"use asm\"; var foo = `backtick`;", options: ["backtick"] },
+        { code: "function foo() { \"use strict\"; \"use strong\"; \"use asm\"; var foo = `backtick`; }", options: ["backtick"] },
+        { code: "(function() { 'use strict'; 'use strong'; 'use asm'; var foo = `backtick`; })();", options: ["backtick"] },
+        { code: "(() => { \"use strict\"; \"use strong\"; \"use asm\"; var foo = `backtick`; })();", options: ["backtick"] },
 
         // `backtick` should not warn import/export sources.
-        { code: "import \"a\"; import 'b';", options: ["backtick"], },
-        { code: "import a from \"a\"; import b from 'b';", options: ["backtick"], },
-        { code: "export * from \"a\"; export * from 'b';", options: ["backtick"], },
+        { code: "import \"a\"; import 'b';", options: ["backtick"] },
+        { code: "import a from \"a\"; import b from 'b';", options: ["backtick"] },
+        { code: "export * from \"a\"; export * from 'b';", options: ["backtick"] },
 
         // `backtick` should not warn property/method names (not computed).
-        { code: "var obj = {\"key0\": 0, 'key1': 1};", options: ["backtick"], },
-        { code: "class Foo { 'bar'(){} }", options: ["backtick"], },
-        { code: "class Foo { static ''(){} }", options: ["backtick"], }
+        { code: "var obj = {\"key0\": 0, 'key1': 1};", options: ["backtick"] },
+        { code: "class Foo { 'bar'(){} }", options: ["backtick"] },
+        { code: "class Foo { static ''(){} }", options: ["backtick"] }
     ],
     invalid: [
         {

@@ -11,7 +11,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const {eslintVersion} = require("./utils.js")
+const { eslintVersion } = require("./utils.js");
 
 
 /**
@@ -41,7 +41,7 @@ if (eslintVersion >= 8) {
         }
     }
 } else if (eslintVersion >= 6) {
-    const builtin = require("eslint/lib/rules");
+    const builtin = require("eslint/lib/rules"); // eslint-disable-line n/no-missing-require
 
     for (const [ruleId, rule] of builtin) {
         if (rule.meta.fixable) {

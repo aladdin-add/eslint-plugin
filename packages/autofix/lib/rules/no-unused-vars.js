@@ -159,7 +159,7 @@ module.exports = ruleComposer.mapReports(
                         return fixer.remove(grand);
                     }
 
-                    if (parent !== grand.specifiers[grand.specifiers.length - 1]) {
+                    if (parent !== grand.specifiers.at(-1)) {
                         const comma = sourceCode.getTokenAfter(parent, commaFilter);
 
                         return [fixer.remove(parent), fixer.remove(comma)];
@@ -189,7 +189,7 @@ module.exports = ruleComposer.mapReports(
                         return fixer.remove(grand);
                     }
 
-                    if (parent !== grand.declarations[grand.declarations.length - 1]) {
+                    if (parent !== grand.declarations.at(-1)) {
                         const comma = sourceCode.getTokenAfter(parent, commaFilter);
 
                         return [fixer.remove(parent), fixer.remove(comma)];
@@ -219,7 +219,7 @@ module.exports = ruleComposer.mapReports(
                         return comma ? [identifierRemoval, fixer.remove(comma)] : identifierRemoval;
                     }
 
-                    if (parent === grand.properties[grand.properties.length - 1]) {
+                    if (parent === grand.properties.at(-1)) {
                         const comma = sourceCode.getTokenBefore(parent, commaFilter);
 
                         return [fixer.remove(parent), fixer.remove(comma)];

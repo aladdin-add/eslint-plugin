@@ -40,7 +40,7 @@ ruleTester.run("no-useless-catch", rule, {
         {
             code: "try {} catch (e) { throw e } finally {}",
             output: "try {}  finally {}",
-            errors:1
+            errors: 1
         }
     ]
 });

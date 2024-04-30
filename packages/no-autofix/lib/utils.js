@@ -8,6 +8,7 @@ const ruleComposer = require("eslint-rule-composer");
 exports.getNonFixableRule = function(rule) {
     return ruleComposer.mapReports(
         Object.create(rule),
-        problem => (problem.fix = null, problem) // eslint-disable-line
+        // eslint-disable-next-line no-return-assign, no-sequences
+        problem => (problem.fix = null, problem)
     );
 };

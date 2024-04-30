@@ -19,9 +19,7 @@ const ruleTester = new RuleTester();
 
 ruleTester.run("no-unused-vars", rule, {
     valid: [
-        {
-            code: "import 'm'",
-        },
+        "import 'm'",
 
         // https://github.com/aladdin-add/eslint-plugin/issues/58
         `const { _ } = require('lib/locale.js');
@@ -186,7 +184,7 @@ ruleTester.run("no-unused-vars", rule, {
         {
             code: "function foo(a, b, c){console.log(b);}; foo(1, 2, 3);",
             output: "function foo(a, b ){console.log(b);}; foo(1, 2, 3);",
-            errors:1,
+            errors: 1,
             options: [{
                 args: "after-used",
                 argsIgnorePattern: "^_"
@@ -195,7 +193,7 @@ ruleTester.run("no-unused-vars", rule, {
         {
             code: "const foo = function(a, b, c) {console.log(b);}; foo(1, 2, 3);",
             output: "const foo = function(a, b ) {console.log(b);}; foo(1, 2, 3);",
-            errors:1,
+            errors: 1,
             options: [{
                 args: "after-used",
                 argsIgnorePattern: "^_"
@@ -204,7 +202,7 @@ ruleTester.run("no-unused-vars", rule, {
         {
             code: "const foo = (a, b, c) => {console.log(b);}; foo(1, 2, 3);",
             output: "const foo = (a, b ) => {console.log(b);}; foo(1, 2, 3);",
-            errors:1,
+            errors: 1,
             options: [{
                 args: "after-used",
                 argsIgnorePattern: "^_"
@@ -213,7 +211,7 @@ ruleTester.run("no-unused-vars", rule, {
         {
             code: "const foo = (a) => {}; foo();",
             output: "const foo = () => {}; foo();",
-            errors:1,
+            errors: 1,
             options: [{
                 args: "after-used",
                 argsIgnorePattern: "^_"
@@ -222,7 +220,7 @@ ruleTester.run("no-unused-vars", rule, {
         {
             code: "const foo = a => {}; foo();",
             output: "const foo = () => {}; foo();",
-            errors:1,
+            errors: 1,
             options: [{
                 args: "after-used",
                 argsIgnorePattern: "^_"

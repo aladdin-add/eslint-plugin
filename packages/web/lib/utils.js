@@ -510,7 +510,7 @@ module.exports = {
      * @private
      */
     isSurroundedBy(val, character) {
-        return val[0] === character && val[val.length - 1] === character;
+        return val[0] === character && val.at(-1) === character;
     },
 
     /**
@@ -1156,8 +1156,8 @@ module.exports = {
      */
     getFunctionHeadLoc(node, sourceCode) {
         const parent = node.parent;
-        let start = null;
-        let end = null;
+        let start;
+        let end;
 
         if (node.type === "ArrowFunctionExpression") {
             const arrowToken = sourceCode.getTokenBefore(node.body, isArrowToken);
@@ -1226,7 +1226,7 @@ module.exports = {
             case "SequenceExpression": {
                 const exprs = node.expressions;
 
-                return exprs.length !== 0 && module.exports.couldBeError(exprs[exprs.length - 1]);
+                return exprs.length !== 0 && module.exports.couldBeError(exprs.at(-1));
             }
 
             case "LogicalExpression":
@@ -1270,7 +1270,7 @@ module.exports = {
         if (typeof leftValue === "string") {
             const leftTokens = espree.tokenize(leftValue, { ecmaVersion: 2015 });
 
-            leftToken = leftTokens[leftTokens.length - 1];
+            leftToken = leftTokens.at(-1);
         } else {
             leftToken = leftValue;
         }
