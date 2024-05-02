@@ -1,0 +1,9 @@
+{
+    "plugins": ["node-workspace"],
+    "bump-minor-pre-major": true,
+    "packages": {
+        "packages/autofix": { "release-type": "node" },
+        "packages/no-autofix": { "release-type": "node" },
+        "packages/web": { "release-type": "node" }
+    }
+}

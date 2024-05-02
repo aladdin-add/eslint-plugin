@@ -1,0 +1,67 @@
+on:
+    push:
+        branches:
+            - master
+
+name: release-please
+
+permissions:
+    contents: write
+    pull-requests: write
+    id-token: write
+
+jobs:
+    release-please:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: GoogleCloudPlatform/release-please-action@v4
+              id: release
+              with:
+                  token: ${{secrets.GITHUB_TOKEN}}
+                  config-file: .github/release-please/config.json
+                  manifest-file: .github/release-please/manifest.json
+
+            # Output which releases were created
+            - run: echo "A release was created."
+              if: ${{ steps.release.outputs.releases_created }}
+
+            # Check to see if we need to do any releases and if so check out the repo
+            - uses: actions/checkout@v4
+              if: ${{ steps.release.outputs.releases_created }}
+
+            # Node.js release
+            - uses: actions/setup-node@v4
+              if: ${{ steps.release.outputs.releases_created }}
+              with:
+                  node-version: lts/*
+                  registry-url: "https://registry.npmjs.org"
+
+            #-----------------------------------------------------------------------------
+            # eslint-plugin-autofix
+            #-----------------------------------------------------------------------------
+
+            - name: Publish eslint-plugin-autofix package to npm
+              run: npm publish -w packages/autofix
+              if: ${{ steps.release.outputs['packages/autofix--release_created'] }}
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+            #-----------------------------------------------------------------------------
+            # eslint-plugin-no-autofix
+            #-----------------------------------------------------------------------------
+
+            - name: Publish eslint-plugin-no-autofix package to npm
+              run: npm publish -w packages/no-autofix
+              if: ${{ steps.release.outputs['packages/no-autofix--release_created'] }}
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+            #-----------------------------------------------------------------------------
+            # eslint-plugin-web
+            #-----------------------------------------------------------------------------
+
+            - name: Publish eslint-plugin-web package to npm
+              run: npm publish -w packages/web
+              if: ${{ steps.release.outputs['packages/web--release_created'] }}
+              env:
+                NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
