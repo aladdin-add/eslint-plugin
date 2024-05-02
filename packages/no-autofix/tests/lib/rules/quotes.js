@@ -5,7 +5,7 @@
 "use strict";
 
 const rule = require("../../../lib/rules").quotes,
-    RuleTester = require("eslint").RuleTester;
+    RuleTester = require("../../rule-tester.js").RuleTester;
 
 const ruleTester = new RuleTester({ languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } } });
 

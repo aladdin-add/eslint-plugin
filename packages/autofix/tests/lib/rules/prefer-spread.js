@@ -11,7 +11,7 @@
 //------------------------------------------------------------------------------
 
 const rule = require("../../../lib/rules/prefer-spread");
-const RuleTester = require("eslint").RuleTester;
+const RuleTester = require("../../rule-tester.js").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests

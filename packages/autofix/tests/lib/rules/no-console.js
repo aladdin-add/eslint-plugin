@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 const rule = require("../../../lib/rules/no-console");
-const RuleTester = require("eslint").RuleTester;
+const RuleTester = require("../../rule-tester.js").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
