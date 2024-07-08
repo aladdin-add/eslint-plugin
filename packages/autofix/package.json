@@ -19,7 +19,6 @@
     "eslint-rule-composer": "^0.3.0",
     "espree": "^9.0.0",
     "esutils": "^2.0.2",
-    "lodash": "^4.17.20",
     "string-similarity": "^4.0.3"
   },
   "devDependencies": {
