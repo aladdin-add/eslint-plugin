@@ -8,8 +8,10 @@ const all = require("./configs/all");
 const recommended = require("./configs/recommended");
 const unsafe = require("./configs/unsafe");
 const rules = require("./rules");
+const pkg = require("../package.json");
 
-const pkg = {
+const plugin = {
+    meta: { name: pkg.name, version: pkg.version },
     configs: {
         all,
         recommended,
@@ -18,10 +20,10 @@ const pkg = {
     rules
 };
 
-Object.assign(pkg.configs, {
-    "flat/all": { ...pkg.configs.all, plugins: { autofix: pkg }, rules: pkg.configs.all.rules },
-    "flat/recommended": { ...pkg.configs.recommended, plugins: { autofix: pkg }, rules: pkg.configs.recommended.rules },
-    "flat/unsafe": { ...pkg.configs.unsafe, plugins: { autofix: pkg }, rules: pkg.configs.unsafe.rules }
+Object.assign(plugin.configs, {
+    "flat/all": { name: "eslint-plugin-autofix/all", ...plugin.configs.all, plugins: { autofix: plugin }, rules: plugin.configs.all.rules },
+    "flat/recommended": { name: "eslint-plugin-autofix/recommended", ...plugin.configs.recommended, plugins: { autofix: plugin }, rules: plugin.configs.recommended.rules },
+    "flat/unsafe": { name: "eslint-plugin-autofix/unsafe", ...plugin.configs.unsafe, plugins: { autofix: plugin }, rules: plugin.configs.unsafe.rules }
 });
 
-module.exports = pkg;
+module.exports = plugin;

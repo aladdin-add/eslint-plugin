@@ -6,16 +6,18 @@
 
 const all = require("./configs/all");
 const rules = require("./rules");
+const pkg = require("../package.json");
 
-const pkg = {
+const plugin = {
+    meta: { name: pkg.name, version: pkg.version },
     configs: {
         all
     },
     rules
 };
 
-Object.assign(pkg.configs, {
-    "flat/all": { plugins: { "no-autofix": pkg }, rules: pkg.configs.all.rules }
+Object.assign(plugin.configs, {
+    "flat/all": { name: "eslint-plugin-no-autofix/all", plugins: { "no-autofix": plugin }, rules: plugin.configs.all.rules }
 });
 
-module.exports = pkg;
+module.exports = plugin;
