@@ -1,5 +1,5 @@
 {
-    "packages/autofix": "2.1.0",
-    "packages/no-autofix": "2.0.0",
-    "packages/web": "0.1.0"
+    "packages/autofix": "2.2.0",
+    "packages/no-autofix": "2.1.0",
+    "packages/web": "0.2.0"
 }

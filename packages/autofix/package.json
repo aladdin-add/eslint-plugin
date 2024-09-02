@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-autofix",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
   "description": "autofix some errors reported by eslint rules.",
   "main": "./lib/index.js",

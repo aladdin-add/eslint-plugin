@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/aladdin-add/eslint-plugin/compare/eslint-plugin-web-v0.1.0...eslint-plugin-web-v0.2.0) (2024-09-02)
+
+
+### Features
+
+* add pkg.meta, config.name for better DX ([#99](https://github.com/aladdin-add/eslint-plugin/issues/99)) ([2557d60](https://github.com/aladdin-add/eslint-plugin/commit/2557d60204c28e305ff9f9e9dad57c7fe595d873))
+
 ## [0.1.0](https://github.com/aladdin-add/eslint-plugin/compare/eslint-plugin-web-v0.0.3...eslint-plugin-web-v0.1.0) (2024-05-02)
 
 
