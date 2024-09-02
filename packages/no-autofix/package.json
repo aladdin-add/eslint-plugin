@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-no-autofix",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
   "description": "eslint rules without fixer.",
   "main": "./lib/index.js",
