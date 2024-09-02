@@ -3,7 +3,7 @@
  * @author 唯然<weiran.zsd@outlook.com>
  */
 "use strict";
-
+const pkg = require("../package.json");
 const ruleIds = ["no-alert", "no-script-url"];
 const all = {};
 const rules = {};
@@ -14,6 +14,7 @@ for (const ruleId of ruleIds) {
 }
 
 module.exports = {
+    meta: { name: pkg.name, version: pkg.version },
     configs: {
         all: {
             plugins: ["web"],
