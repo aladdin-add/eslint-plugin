@@ -22,7 +22,7 @@ module.exports = ruleComposer.mapReports(
             const best = closest(value, VALID_TYPES);
 
             if (best.rating > 0.3) {
-                return fixer.replaceText(sibling, `"${best.target}"`);
+                return fixer.replaceText(sibling, `"${best}"`);
             }
             return null;
         };
